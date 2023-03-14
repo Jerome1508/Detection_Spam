@@ -10,6 +10,6 @@ package com.example.detection_spam.model;
  * @author Alexis RAVAYROL, Romain PALAYRET
  * @version 1.0.0
  */
-public enum Etat {
-    SPAM, NON_SPAM, NON_TRAITE
+public enum State {
+    SPAM, NOT_SPAM, UNTREATED
 }
