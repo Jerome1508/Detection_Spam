@@ -12,46 +12,46 @@ package com.example.detection_spam.model;
  */
 public class Mail {
 
-    private String contenu;
+    private String content;
 
-    private Etat etat;
+    private State state;
 
     /**
      * Constructeur de la classe Mail
-     * @param contenu le texte du mail
+     * @param content le texte du mail
      */
-    public Mail(String contenu) {
+    public Mail(String content) {
 
-        if(contenu != null) {
-            this.contenu = contenu;
-            this.etat = Etat.NON_TRAITE;
+        if(content != null) {
+            this.content = content;
+            this.state = State.UNTREATED;
         } else {
-            throw new IllegalArgumentException("Le contenu d'un mail ne peut pas etre null");
+            throw new IllegalArgumentException("Le content d'un mail ne peut pas etre null");
         }
     }
 
     /**
-     * Renvoie le texte associé au mail, donc son contenu
-     * @return le contenu du mail
+     * Renvoie le texte associé au mail, donc son content
+     * @return le content du mail
      */
     public String getText() {
-        return contenu;
+        return content;
     }
 
     /**
      * Modifie l'etat du mail (SPAM, NON_SPAM, NON_TRAITE)
-     * @param etat le nouvel etat du mail
+     * @param state le nouvel etat du mail
      */
-    public void setEtat(Etat etat) {
-        this.etat = etat;
+    public void setState(State state) {
+        this.state = state;
     }
 
     /**
      * Renvoie l'etat du mail (SPAM, NON_SPAM, NON_TRAITE)
      * @return l'etat du mail
      */
-    public Etat getEtat() {
-        return etat;
+    public State getState() {
+        return state;
     }
 
 

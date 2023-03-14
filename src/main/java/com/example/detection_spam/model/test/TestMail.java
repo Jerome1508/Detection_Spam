@@ -5,7 +5,7 @@
  */
 package com.example.detection_spam.model.test;
 
-import com.example.detection_spam.model.Etat;
+import com.example.detection_spam.model.State;
 import com.example.detection_spam.model.Mail;
 
 /**
@@ -13,7 +13,7 @@ import com.example.detection_spam.model.Mail;
  * @author Alexis RAVAYROL, Romain PALAYRET
  * @version 1.0.0
  */
-public class TestFileUtils {
+public class TestMail {
 
     /**
      * méthode qui test le constructeur de la class mail
@@ -28,10 +28,10 @@ public class TestFileUtils {
         // on essaie de creer un mail avec des sauts de lignes
         Mail mail3 = new Mail("Ceci est un /n test");
 
-        // on essaie de creer un mail avec un contenu == a null;
+        // on essaie de creer un mail avec un content == a null;
         try {
             Mail mail4 = new Mail(null);
-            System.err.println("Le contenu du mail peut etre null, alors que ce n'est pas le comportement attendu");
+            System.err.println("Le content du mail peut etre null, alors que ce n'est pas le comportement attendu");
         } catch (IllegalArgumentException e) {
         }
     }
@@ -40,12 +40,12 @@ public class TestFileUtils {
      * méthode qui test le getText() de la class mail
      */
     private static void testgetText() {
-        String contenu = "Ceci est un test";
+        String content = "Ceci est un test";
 
-        Mail mail1 = new Mail(contenu);
+        Mail mail1 = new Mail(content);
 
-        if(! mail1.getText().equals(contenu)) {
-            System.err.println("Le getText() renvoie : \"" + mail1.getText() + "\" alors qu'on attendait \"" + contenu + "\"...");
+        if(! mail1.getText().equals(content)) {
+            System.err.println("Le getText() renvoie : \"" + mail1.getText() + "\" alors qu'on attendait \"" + content + "\"...");
         } else {
             System.out.println("test getText() passe avec Succes");
         }
@@ -57,37 +57,37 @@ public class TestFileUtils {
      * méthode qui test le getEtat() et setEtat de la class mail
      */
     private static void testGetSetEtat() {
-        String contenu = "Ceci est un test";
+        String content = "Ceci est un test";
         int nbTestReussi = 0;
-        Mail mail1 = new Mail(contenu);
+        Mail mail1 = new Mail(content);
 
         // test non traitee par defaut
-        if(! mail1.getEtat().equals(Etat.NON_TRAITE)) {
-            System.err.println("Le getEtat() renvoie : \"" + mail1.getEtat() + "\" alors qu'on attendait \"" + Etat.NON_TRAITE + "\"...");
+        if(! mail1.getState().equals(State.UNTREATED)) {
+            System.err.println("Le getEtat() renvoie : \"" + mail1.getState() + "\" alors qu'on attendait \"" + State.UNTREATED + "\"...");
         } else {
             nbTestReussi ++;
         }
 
         // test spam
-        mail1.setEtat(Etat.SPAM);
-        if(! mail1.getEtat().equals(Etat.SPAM)) {
-            System.err.println("Le getEtat() renvoie : \"" + mail1.getEtat() + "\" alors qu'on attendait \"" + Etat.SPAM + "\"...");
+        mail1.setState(State.SPAM);
+        if(! mail1.getState().equals(State.SPAM)) {
+            System.err.println("Le getEtat() renvoie : \"" + mail1.getState() + "\" alors qu'on attendait \"" + State.SPAM + "\"...");
         } else {
             nbTestReussi ++;
         }
 
         // test non spam
-        mail1.setEtat(Etat.NON_SPAM);
-        if(! mail1.getEtat().equals(Etat.NON_SPAM)) {
-            System.err.println("Le getEtat() renvoie : \"" + mail1.getEtat() + "\" alors qu'on attendait \"" + Etat.NON_SPAM + "\"...");
+        mail1.setState(State.NOT_SPAM);
+        if(! mail1.getState().equals(State.NOT_SPAM)) {
+            System.err.println("Le getEtat() renvoie : \"" + mail1.getState() + "\" alors qu'on attendait \"" + State.NOT_SPAM + "\"...");
         } else {
             nbTestReussi ++;
         }
 
         // test non traitee
-        mail1.setEtat(Etat.NON_TRAITE);
-        if(! mail1.getEtat().equals(Etat.NON_TRAITE)) {
-            System.err.println("Le getEtat() renvoie : \"" + mail1.getEtat() + "\" alors qu'on attendait \"" + Etat.NON_TRAITE + "\"...");
+        mail1.setState(State.UNTREATED);
+        if(! mail1.getState().equals(State.UNTREATED)) {
+            System.err.println("Le getEtat() renvoie : \"" + mail1.getState() + "\" alors qu'on attendait \"" + State.UNTREATED + "\"...");
         } else {
             nbTestReussi ++;
         }
