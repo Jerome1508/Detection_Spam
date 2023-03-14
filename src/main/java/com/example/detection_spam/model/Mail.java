@@ -14,7 +14,7 @@ public class Mail {
 
     private String contenu;
 
-    // private Etat
+    private Etat etat;
 
     /**
      * Constructeur de la classe Mail
@@ -22,6 +22,12 @@ public class Mail {
      */
     public Mail(String contenu) {
 
+        if(contenu != null) {
+            this.contenu = contenu;
+            this.etat = Etat.NON_TRAITE;
+        } else {
+            throw new IllegalArgumentException("Le contenu d'un mail ne peut pas etre null");
+        }
     }
 
     /**
@@ -29,25 +35,25 @@ public class Mail {
      * @return le contenu du mail
      */
     public String getText() {
-        return null;
+        return contenu;
     }
 
-//    /**
-//     * Modifie l'etat du mail (SPAM, NON_SPAM, NON_TRAITE)
-//     * @param etat le nouvel etat du mail
-//     */
-//    public setEtat(Etat etat) {
-//
-//    }
+    /**
+     * Modifie l'etat du mail (SPAM, NON_SPAM, NON_TRAITE)
+     * @param etat le nouvel etat du mail
+     */
+    public void setEtat(Etat etat) {
+        this.etat = etat;
+    }
 
-//    /**
-//     * Renvoie l'etat du mail (SPAM, NON_SPAM, NON_TRAITE)
-//     * @return l'etat du mail
-//     */
-//    public Etat getEtat() {
-//        return null;
-//    }
-//
+    /**
+     * Renvoie l'etat du mail (SPAM, NON_SPAM, NON_TRAITE)
+     * @return l'etat du mail
+     */
+    public Etat getEtat() {
+        return etat;
+    }
+
 
 
 
