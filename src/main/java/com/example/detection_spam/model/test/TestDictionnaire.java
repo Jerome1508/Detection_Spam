@@ -5,6 +5,9 @@
  */
 package com.example.detection_spam.model.test;
 
+import com.example.detection_spam.model.Dictionary;
+import com.example.detection_spam.model.Mail;
+
 /**
  * Classe qui va effectuer les tests unitaires sur la classe Dictionnaire
  * @author Alexis RAVAYROL, Romain PALAYRET
@@ -13,10 +16,11 @@ package com.example.detection_spam.model.test;
 public class TestDictionnaire {
 
     /**
-     * TODO méthode qui test le constructeur de la class dictionnaire
+     * méthode qui test le constructeur de la class dictionnaire
      */
     private static void testConstructeur() {
-
+        // on essaie de creer un Dictionnaire
+        Dictionary dico1 = new Dictionary();
     }
 
     /**
@@ -27,9 +31,12 @@ public class TestDictionnaire {
     }
 
     /**
-     * TODO méthode qui test le getProbaSpam()
+     * méthode qui test le getProbaSpam()
+     * Il s'agit d'une méthode privée, donc il faut penser à la mettre en public pour les tests.
      */
     private static void testgetProbaSpam() {
+        Dictionary dico1 = new Dictionary();
+
 
     }
 
