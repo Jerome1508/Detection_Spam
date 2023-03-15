@@ -11,6 +11,11 @@ import com.example.detection_spam.utils.FileUtils;
 
 import java.util.ArrayList;
 
+/**
+ * Classe qui va effectuer des tests sur la classe FilesUtils
+ * @author Marin BAILHE, Jérôme CHIROL
+ * @version 1.0.0
+ */
 public class TestFileUtils {
     /**
      * TODO méthode qui test le constructeur de la class dictionnaire

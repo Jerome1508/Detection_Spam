@@ -11,6 +11,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.regex.Pattern;
 
+/**
+ * Classe permettant de récupérer des messages textes pour en faire des objects mail
+ * @author Marin BAILHE, Jérôme CHIROL
+ * @version 1.0.0
+ */
 public class FileUtils {
     public static Mail parseFile(String filePath) {
         if (filePath.endsWith(".txt")) {

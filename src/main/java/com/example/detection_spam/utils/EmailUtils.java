@@ -6,8 +6,13 @@ import javax.mail.*;
 import javax.mail.internet.*;
 import com.example.detection_spam.model.Mail;
 
+/**
+ * Classe qui va effectuer la connexion avec la boite mail de l'utilisateur et récupérer les mails
+ * @author Marin BAILHE, Jérôme CHIROL
+ * @version 1.0.0
+ */
 public class EmailUtils {
-    public static Folder[] emailConnect() throws MessagingException, IOException {
+    public static Folder[] emailConnect() throws MessagingException {
         String host = "imap.gmx.com";
         String username = "javamailspam@gmx.fr";
         String password = "7hkCMpnu2iyP49V";

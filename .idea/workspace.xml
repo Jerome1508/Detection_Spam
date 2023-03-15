@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="715cd864-f7ef-4320-8f0f-25ba57551ea3" name="Changes" comment="Fix todo in comment">
+    <list default="true" id="715cd864-f7ef-4320-8f0f-25ba57551ea3" name="Changes" comment="ajout partiel de la javadoc par jérôme">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/model/test/TestDictionnaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/model/test/TestDictionnaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/utils/EmailUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/utils/EmailUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/utils/FileUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/utils/test/TestEmailUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/utils/test/TestEmailUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/utils/test/TestFileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/utils/test/TestFileUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +37,9 @@
     <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="2MzoMnPW9IHyKZJpfh3HDDnLOR5" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -49,26 +54,13 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.TestDictionnaire">
+  <component name="RunManager" selected="Application.TestMail">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.detection_spam.HelloApplication" />
       <module name="Detection_Spam" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.detection_spam.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestDictionnaire" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.detection_spam.model.test.TestDictionnaire" />
-      <module name="Detection_Spam" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.detection_spam.model.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -91,7 +83,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TestDictionnaire" />
         <item itemvalue="Application.TestMail" />
         <item itemvalue="Application.HelloApplication" />
       </list>
@@ -134,21 +125,7 @@
       <option name="project" value="LOCAL" />
       <updated>1678784552553</updated>
     </task>
-    <task id="LOCAL-00005" summary="Add Dictionary class and test">
-      <created>1678875537512</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1678875537512</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Fix todo in comment">
-      <created>1678875607325</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1678875607325</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,8 +144,7 @@
     <MESSAGE value="Mis en place architecture" />
     <MESSAGE value="Add exemple javadoc" />
     <MESSAGE value="Add class Main terminée et test class mail" />
-    <MESSAGE value="Add Dictionary class and test" />
-    <MESSAGE value="Fix todo in comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix todo in comment" />
+    <MESSAGE value="ajout partiel de la javadoc par jérôme" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout partiel de la javadoc par jérôme" />
   </component>
 </project>
