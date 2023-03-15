@@ -9,16 +9,24 @@ package com.example.detection_spam.utils.test;
 import com.example.detection_spam.model.Mail;
 import com.example.detection_spam.utils.FileUtils;
 
+import java.util.ArrayList;
+
 public class TestFileUtils {
     /**
      * TODO méthode qui test le constructeur de la class dictionnaire
      */
     private static void testParseFile() {
-        Mail mailtest = FileUtils.parseFile("C:\\Users\\m.bailhe\\IdeaProjects\\Detection_Spam\\src\\main\\resources\\Data\\Test.txt");
+        Mail mailtest = FileUtils.parseFile("C:\\Users\\m.bailhe\\IdeaProjects\\Detection_Spam\\src\\main\\resources\\Data\\base_text\\Test.txt");
         System.out.println(mailtest.getText());
     }
 
+    private static void testParseFolder() {
+        ArrayList<Mail> mails = FileUtils.parseFolder("C:\\Users\\m.bailhe\\IdeaProjects\\Detection_Spam\\src\\main\\resources\\Data\\base_text");
+        mails.forEach(x -> System.out.println(x.getText()));
+    }
+
     public static void main (String[] args) {
-        testParseFile();
+        testParseFolder();
+
     }
 }

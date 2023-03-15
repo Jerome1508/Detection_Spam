@@ -13,15 +13,16 @@ import java.util.regex.Pattern;
 
 public class FileUtils {
     public static Mail parseFile(String filePath) {
-        if (true) {//Pattern.matches("\\.txt", filePath)
+        if (filePath.endsWith(".txt")) {
             Path P1 = Paths.get(filePath);
             try(BufferedReader br = Files.newBufferedReader(P1)){
+                StringBuilder res = new StringBuilder();
                 String lines = br.readLine();
                 while(lines != null){
-                    System.out.println(lines);
+                    res.append(lines);
                     lines = br.readLine();
                 }
-                return new Mail(lines);
+                return new Mail(res.toString());
             }catch(IOException e){
                 e.printStackTrace();
             }
