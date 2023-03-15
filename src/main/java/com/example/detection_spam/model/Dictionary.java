@@ -5,7 +5,7 @@
  */
 package com.example.detection_spam.model;
 
-import java.io.Serializable;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,28 +16,52 @@ import java.util.Map;
  */
 public class Dictionary implements Serializable {
 
-    private int totalMailNumber, totalSpamNumber, totalNotSpamNumber;
+    private Map<String, Integer> DicoSpam;
+    private Map<String, Integer> DicoNotSpam;
 
-    private Map<String, Double> DicoSpam;
-    private Map<String, Double> DicoNotSpam;
+    public Map<String, Integer> getDicoSpam() {
+        return DicoSpam;
+    }
+
+    public Map<String, Integer> getDicoNotSpam() {
+        return DicoNotSpam;
+    }
+
 
     /**
      * On construit un dictionnaire en dé-sérializant sa sauvegarde
      * @param path le chemin de la sauvegarde du dictionnaire (un fichier au format xml)
      */
     public Dictionary(String path) {
+        ObjectInputStream ois = null;
 
+        try {
+            final FileInputStream fichier = new FileInputStream(path);
+            ois = new ObjectInputStream(fichier);
+            Dictionary temp = (Dictionary) ois.readObject();
+            this.DicoNotSpam = temp.getDicoNotSpam();
+            this.DicoSpam = temp.getDicoSpam();
+        } catch (final java.io.IOException e) {
+            e.printStackTrace();
+        } catch (final ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (final IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
     /**
      * On construit un dictionnaire avec aucun mot au début
      */
     public Dictionary() {
-        int totalMailNumber = 0;
-        int totalSpamNumber = 0;
-        int totalNotSpamNumber = 0;
-        this.DicoSpam = new HashMap<String, Double>();
-        this.DicoNotSpam = new HashMap<String, Double>();
+        this.DicoSpam = new HashMap<String, Integer>();
+        this.DicoNotSpam = new HashMap<String, Integer>();
     }
 
     /**
@@ -45,8 +69,14 @@ public class Dictionary implements Serializable {
      * @param word dont on veut la probabilité
      * @return la probabilité que le mot pris en argument soit dans un mail de type SPAM
      */
-    private double getProbaSpam(String word) {
-        return 0.0; // bouchon
+    public double getProbaSpam(String word) {
+        double ret;
+        try {
+            ret = ((double) DicoSpam.get(word)) / (double) (DicoSpam.get(word) + DicoNotSpam.get(word));
+        } catch (Exception e) {
+            ret = 0;
+        }
+        return ret;
     }
 
     /**
@@ -54,59 +84,64 @@ public class Dictionary implements Serializable {
      * @param word dont on veut la probabilité
      * @return la probabilité que le mot pris en argument soit dans un mail de type NON_SPAM
      */
-    private double getProbaNotSpam(String word) {
-        return 0.0; // bouchon
-    }
-
-
-    /**
-     * @return le nombre de mail total qui a permis de construire ce dictionnaire
-     */
-    public int getTotalMailNumber() {
-        return totalMailNumber;
-    }
-
-    /**
-     * @return le nombre de mail SPAM total qui a permis de construire ce dictionnaire
-     */
-    public int getTotalSpamNumber() {
-        return totalSpamNumber;
+    public double getProbaNotSpam(String word) {
+        double ret;
+        try {
+            ret = ((double) DicoNotSpam.get(word)) / (double) (DicoSpam.get(word) + DicoNotSpam.get(word));
+        } catch (Exception e) {
+            ret = 0;
+        }
+        return ret;
     }
 
     /**
-     * @return le nombre de mail NON_SPAM total qui a permis de construire ce dictionnaire
-     */
-    public int getTotalNotSpamNumber() {
-        return totalNotSpamNumber;
-    }
-
-    /**
-     * Ajoute un nouveau mot dans les dictionnaires, avec leur probabilité
+     * Ajoute un nouveau mot dans les dictionnaires
      * préposition : le mot n'est pas présent dans le dico
      * @param word le mot qu'on souhaite ajouter
-     * @param probaSpam la probabilité que le mot soit présent dans un spam
-     * @param probaNotSpam la probabilité que le mot soit présent dans un non spam
+     * @param spam true si le mot provient d'un spam, false sinon
      */
-    private void addWord(String word, double probaSpam, double probaNotSpam) {
-
+    private void addWord(String word, boolean spam) {
+        DicoSpam.put(word, spam ? 1 : 0);
+        DicoNotSpam.put(word, spam ? 0 : 1);
     }
 
     /**
-     * Récupère la probabilité que le mail qui contient le mot soit un spam
+     * Met à jour la probabilité que le mail qui contient le mot soit un spam, ou l'ajoute
      * @param word dont on veut la probabilité
-     * @return la probabilité que le mail qui contient le mot soit un spam
      */
-    public double getProbaSpamOrAdd(String word) {
-        return 0.0; // bouchon
+    public void majProbaOrAdd(String word, boolean spam) {
+
+        if(DicoSpam.containsKey(word)) {
+            DicoSpam.put(word, DicoSpam.get(word) + (spam ? 1 : 0));
+            DicoNotSpam.put(word, DicoNotSpam.get(word) + (spam ? 0 : 1));
+        } else {
+            addWord(word, spam);
+        }
     }
 
     /**
-     * Récupère la probabilité que le mail qui contient le mot soit un spam
-     * @param word dont on veut la probabilité
-     * @return la probabilité que le mail qui contient le mot soit un non spam
+     * Enregistre le dictionnaire dans un fichier
      */
-    public double getProbaNotSpamOrAdd(String word) {
-        return 0.0; // bouchon
+    public void saveDico(String path) {
+        ObjectOutputStream oos = null;
+
+        try {
+            final FileOutputStream fichier = new FileOutputStream(path);
+            oos = new ObjectOutputStream(fichier);
+            oos.writeObject(this);
+            oos.flush();
+        } catch (final java.io.IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (oos != null) {
+                    oos.flush();
+                    oos.close();
+                }
+            } catch (final IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
 }
