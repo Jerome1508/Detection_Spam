@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="715cd864-f7ef-4320-8f0f-25ba57551ea3" name="Changes" comment="Add class Main terminée et test class mail">
+    <list default="true" id="715cd864-f7ef-4320-8f0f-25ba57551ea3" name="Changes" comment="Add Dictionary class and test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/model/Dictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/model/Dictionary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/model/test/TestDictionnaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/model/test/TestDictionnaire.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678784552553</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add Dictionary class and test">
+      <created>1678875537512</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678875537512</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -154,6 +160,7 @@
     <MESSAGE value="Mis en place architecture" />
     <MESSAGE value="Add exemple javadoc" />
     <MESSAGE value="Add class Main terminée et test class mail" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add class Main terminée et test class mail" />
+    <MESSAGE value="Add Dictionary class and test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Dictionary class and test" />
   </component>
 </project>

@@ -127,7 +127,7 @@ public class TestDictionnaire {
 
 
     /**
-     * TODO méthode qui test la serializable()
+     * méthode qui test la serializable()
      */
     private static void testSerialisable() {
 
@@ -153,7 +153,7 @@ public class TestDictionnaire {
     }
 
     /**
-     * TODO méthode qui test la dé-serializable()
+     *  méthode qui test la dé-serializable()
      */
     private static void testDeserialisable() {
         Dictionary dico2 = new Dictionary("sauvegarde.ser");
