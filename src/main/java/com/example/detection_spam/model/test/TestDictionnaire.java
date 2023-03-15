@@ -23,12 +23,6 @@ public class TestDictionnaire {
         Dictionary dico1 = new Dictionary();
     }
 
-    /**
-     * TODO méthode qui test le constructeur XML de la class dictionnaire
-     */
-    private static void testConstructeurXML() {
-
-    }
 
     /**
      * méthode qui test le getProbaSpam()
