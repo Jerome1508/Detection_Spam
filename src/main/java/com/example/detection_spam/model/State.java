@@ -6,7 +6,7 @@
 package com.example.detection_spam.model;
 
 /**
- * Les différents etats que peut avoir un mail
+ * Les différents états que peut avoir un mail
  * @author Alexis RAVAYROL, Romain PALAYRET
  * @version 1.0.0
  */
