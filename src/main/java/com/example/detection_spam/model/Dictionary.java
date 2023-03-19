@@ -19,6 +19,18 @@ public class Dictionary implements Serializable {
     private Map<String, Integer> DicoSpam;
     private Map<String, Integer> DicoNotSpam;
 
+    private int nbSpamToLearn;
+
+    public int getNbSpamToLearn() {
+        return nbSpamToLearn;
+    }
+
+    public int getNbNotSpamToLearn() {
+        return nbNotSpamToLearn;
+    }
+
+    private int nbNotSpamToLearn;
+
     public Map<String, Integer> getDicoSpam() {
         return DicoSpam;
     }
@@ -41,6 +53,8 @@ public class Dictionary implements Serializable {
             Dictionary temp = (Dictionary) ois.readObject();
             this.DicoNotSpam = temp.getDicoNotSpam();
             this.DicoSpam = temp.getDicoSpam();
+            this.nbSpamToLearn = temp.getNbSpamToLearn();
+            this.nbNotSpamToLearn = temp.getNbNotSpamToLearn();
         } catch (final java.io.IOException e) {
             e.printStackTrace();
         } catch (final ClassNotFoundException e) {
@@ -62,6 +76,22 @@ public class Dictionary implements Serializable {
     public Dictionary() {
         this.DicoSpam = new HashMap<String, Integer>();
         this.DicoNotSpam = new HashMap<String, Integer>();
+        this.nbNotSpamToLearn = 0;
+        this.nbSpamToLearn = 0;
+    }
+
+    /**
+     * ajoute 1 à la variable qui compte le compte de spams utilisé pour remplir le dico
+     */
+    public void addSpamToLearn() {
+        this.nbSpamToLearn += 1;
+    }
+
+    /**
+     * ajoute 1 à la variable qui compte le compte de mail non spam utilisé pour remplir le dico
+     */
+    public void addNotSpamToLearn() {
+        this.nbNotSpamToLearn += 1;
     }
 
     /**
@@ -72,9 +102,11 @@ public class Dictionary implements Serializable {
     public double getProbaSpam(String word) {
         double ret;
         try {
-            ret = ((double) DicoSpam.get(word)) / (double) (DicoSpam.get(word) + DicoNotSpam.get(word));
+            double probaSpam = ((double) DicoSpam.get(word)) / ((double) this.nbSpamToLearn);
+            double probaNotSpam = ((double) DicoNotSpam.get(word)) / ((double) this.nbNotSpamToLearn);
+            ret = probaSpam / (probaSpam + probaNotSpam);
         } catch (Exception e) {
-            ret = 0;
+            ret = 0.00;
         }
         return ret;
     }
@@ -87,11 +119,22 @@ public class Dictionary implements Serializable {
     public double getProbaNotSpam(String word) {
         double ret;
         try {
-            ret = ((double) DicoNotSpam.get(word)) / (double) (DicoSpam.get(word) + DicoNotSpam.get(word));
+            double probaSpam = ((double) DicoSpam.get(word)) / ((double) this.nbSpamToLearn);
+            double probaNotSpam = ((double) DicoNotSpam.get(word)) / ((double) this.nbNotSpamToLearn);
+            ret = probaNotSpam / (probaSpam + probaNotSpam);
         } catch (Exception e) {
             ret = 0;
         }
         return ret;
+    }
+
+    /**
+     * Renvoie true si le mot est contenu dans les dictionnaires
+     * @param word dont on veut la probabilité
+     * @return true si le mot est contenu dans les dictionnaires, false sinon
+     */
+    public boolean containsWord(String word) {
+        return DicoSpam.containsKey(word);
     }
 
     /**
