@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.regex.Pattern;
 
 /**
- * Classe permettant de récupérer des messages textes pour en faire des objects mail
+ * Classe permettant de récupérer des messages textes pour en faire des objets mail
  * @author Marin BAILHE, Jérôme CHIROL
  * @version 1.0.0
  */

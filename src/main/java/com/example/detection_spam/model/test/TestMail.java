@@ -16,7 +16,7 @@ import com.example.detection_spam.model.Mail;
 public class TestMail {
 
     /**
-     * méthode qui test le constructeur de la class mail
+     * méthode qui test le constructeur de la classe mail
      */
     private static void testConstructeur() {
         // on essaie de creer un mail
@@ -31,7 +31,7 @@ public class TestMail {
         // on essaie de creer un mail avec un content == a null;
         try {
             Mail mail4 = new Mail(null);
-            System.err.println("Le content du mail peut etre null, alors que ce n'est pas le comportement attendu");
+            System.err.println("Le contenu du mail peut etre null, alors que ce n'est pas le comportement attendu");
         } catch (IllegalArgumentException e) {
         }
     }
@@ -54,7 +54,7 @@ public class TestMail {
 
 
     /**
-     * méthode qui test le getEtat() et setEtat de la class mail
+     * méthode qui test le getEtat() et setEtat() de la classe mail
      */
     private static void testGetSetEtat() {
         String content = "Ceci est un test";

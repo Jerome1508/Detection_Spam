@@ -16,7 +16,7 @@ import com.example.detection_spam.model.Mail;
 public class TestDictionnaire {
 
     /**
-     * méthode qui test le constructeur de la class dictionnaire
+     * méthode qui test le constructeur de la classe dictionnaire
      */
     private static void testConstructeur() {
         // on essaie de creer un Dictionnaire
@@ -66,7 +66,7 @@ public class TestDictionnaire {
     /**
      * méthode qui test la methode majProbaOrAdd()
      * Cette méthode ajoute un mot au dictionnaire s'il n'existe pas déjà
-     * ou met a jour sa proba s'il est déjà présent
+     * ou met a jour sa probabilité s'il est déjà présent
      */
     private static void testMajProbaOrAdd() {
         int nbTestReussi = 0;

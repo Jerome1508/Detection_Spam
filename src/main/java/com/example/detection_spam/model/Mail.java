@@ -26,29 +26,29 @@ public class Mail {
             this.content = content;
             this.state = State.UNTREATED;
         } else {
-            throw new IllegalArgumentException("Le content d'un mail ne peut pas etre null");
+            throw new IllegalArgumentException("Le contenu d'un mail ne peut pas etre null");
         }
     }
 
     /**
-     * Renvoie le texte associé au mail, donc son content
-     * @return le content du mail
+     * Renvoie le texte associé au mail, donc son contenu
+     * @return le contenu du mail
      */
     public String getText() {
         return content;
     }
 
     /**
-     * Modifie l'etat du mail (SPAM, NON_SPAM, NON_TRAITE)
-     * @param state le nouvel etat du mail
+     * Modifie l'état du mail (SPAM, NON_SPAM, NON_TRAITE)
+     * @param state le nouvel état du mail
      */
     public void setState(State state) {
         this.state = state;
     }
 
     /**
-     * Renvoie l'etat du mail (SPAM, NON_SPAM, NON_TRAITE)
-     * @return l'etat du mail
+     * Renvoie l'état du mail (SPAM, NON_SPAM, NON_TRAITE)
+     * @return l'état du mail
      */
     public State getState() {
         return state;
