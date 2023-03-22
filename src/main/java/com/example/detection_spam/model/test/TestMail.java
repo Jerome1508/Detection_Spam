@@ -58,14 +58,14 @@ public class TestMail {
      */
     private static void testGetSetEtat() {
         String content = "Ceci est un test";
-        int nbTestReussi = 0;
+        int nbSuccessfulTest = 0;
         Mail mail1 = new Mail(content);
 
         // test non traitee par defaut
         if(! mail1.getState().equals(State.UNTREATED)) {
             System.err.println("Le getEtat() renvoie : \"" + mail1.getState() + "\" alors qu'on attendait \"" + State.UNTREATED + "\"...");
         } else {
-            nbTestReussi ++;
+            nbSuccessfulTest ++;
         }
 
         // test spam
@@ -73,7 +73,7 @@ public class TestMail {
         if(! mail1.getState().equals(State.SPAM)) {
             System.err.println("Le getEtat() renvoie : \"" + mail1.getState() + "\" alors qu'on attendait \"" + State.SPAM + "\"...");
         } else {
-            nbTestReussi ++;
+            nbSuccessfulTest ++;
         }
 
         // test non spam
@@ -81,7 +81,7 @@ public class TestMail {
         if(! mail1.getState().equals(State.NOT_SPAM)) {
             System.err.println("Le getEtat() renvoie : \"" + mail1.getState() + "\" alors qu'on attendait \"" + State.NOT_SPAM + "\"...");
         } else {
-            nbTestReussi ++;
+            nbSuccessfulTest ++;
         }
 
         // test non traitee
@@ -89,10 +89,10 @@ public class TestMail {
         if(! mail1.getState().equals(State.UNTREATED)) {
             System.err.println("Le getEtat() renvoie : \"" + mail1.getState() + "\" alors qu'on attendait \"" + State.UNTREATED + "\"...");
         } else {
-            nbTestReussi ++;
+            nbSuccessfulTest ++;
         }
 
-        System.out.println("Tests getEtat/setEtat reussis : " + nbTestReussi + "/4 ");
+        System.out.println("Tests getEtat/setEtat reussis : " + nbSuccessfulTest + "/4 ");
 
     }
 
