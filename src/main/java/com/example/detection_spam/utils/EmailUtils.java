@@ -54,7 +54,7 @@ public class EmailUtils {
         for (Folder folder : folders) {
             if (folder.getMessageCount() != 0) {
                 folder.open(Folder.READ_ONLY);
-                for (int i = 1; i < folder.getMessageCount(); i++) {
+                for (int i = 1; i <= folder.getMessageCount(); i++) {
                     Message message = folder.getMessage(i);
                     String content = message.getSubject();
                     if (message.isMimeType("TEXT/plain")) {
