@@ -37,7 +37,12 @@ public class EmailUtils {
         for (int i = 0; i < mpt.getCount(); i++) {
             BodyPart bodyPart = mpt.getBodyPart(i);
             if (bodyPart.isMimeType("text/plain")) {
-                res += "\n" + bodyPart.getContent();
+                res = "\n" + bodyPart.getContent();
+            }
+            else {
+                if (bodyPart.getContent() instanceof MimeMultipart){
+                    res = getcontentFromMultipartMail((MimeMultipart)bodyPart.getContent());
+                }
             }
         }
         return res;
