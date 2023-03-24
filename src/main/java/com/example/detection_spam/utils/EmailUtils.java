@@ -31,4 +31,23 @@ public class EmailUtils {
         store.close();
         return folderList;
     }
+
+    public static ArrayList<Mail> ParseEmail(Folder[] folders) throws MessagingException, IOException {
+        ArrayList<Mail> mails = new ArrayList<Mail>();
+
+        for (Folder folder : folders) {
+            if (folder.getMessageCount() != 0) {
+                for (int i = 1; i < folder.getMessageCount(); i++) {
+                    Message message = folder.getMessage(i);
+                    String content = message.getSubject();
+                    Multipart mpt = (Multipart) message.getContent();
+
+
+                    Mail mail = new Mail(content);
+                    mails.add(mail);
+                }
+            }
+        }
+        return mails;
+    }
 }
