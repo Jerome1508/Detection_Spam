@@ -1,4 +1,4 @@
 package com.example.detection_spam;
 
-public class MainMenuView {
+public class MailContentController {
 }

@@ -29,7 +29,7 @@ public class Mail {
             this.subject = subject;
             this.state = State.UNTREATED;
         } else {
-            throw new IllegalArgumentException("Le contenu d'un mail ne peut pas etre null");
+            throw new IllegalArgumentException("Le contenu d'un mail ne peut pas être null");
         }
     }
 

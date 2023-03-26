@@ -17,7 +17,7 @@
                   <HBox alignment="TOP_RIGHT" prefHeight="10.0" prefWidth="285.0">
                      <children>
                         <Label text="Chemin : " />
-                        <TextArea fx:id="searchPath" editable="false" prefHeight="39.0" prefWidth="216.0" />
+                     <TextField fx:id="searchPath" prefWidth="216.0" />
                      </children>
                      <VBox.margin>
                         <Insets right="10.0" top="20.0" />
@@ -28,7 +28,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Valider">
+                  <Button fx:id="validateFolderButton" mnemonicParsing="false" onAction="#onValidateFolderButtonClick" text="Valider">
                      <VBox.margin>
                         <Insets top="174.0" />
                      </VBox.margin>
@@ -48,16 +48,16 @@
                         <HBox alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="289.0">
                            <children>
                               <Label text="Email : " />
-                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                           <TextField fx:id="emailArea" prefWidth="200.0" />
                            </children>
                            <VBox.margin>
                               <Insets right="10.0" top="20.0" />
                            </VBox.margin>
                         </HBox>
-                        <HBox alignment="TOP_RIGHT" prefHeight="17.0" prefWidth="289.0">
+                        <HBox alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="289.0">
                            <children>
                               <Label text="MDP : " />
-                              <TextArea prefHeight="8.0" prefWidth="200.0" />
+                           <PasswordField fx:id="passwordArea" prefHeight="40.0" prefWidth="200.0" />
                            </children>
                            <VBox.margin>
                               <Insets right="10.0" top="20.0" />
@@ -66,7 +66,7 @@
                         <HBox alignment="TOP_RIGHT" prefHeight="11.0" prefWidth="289.0">
                            <children>
                               <Label text="Imap : " />
-                              <TextArea prefHeight="40.0" prefWidth="200.0" />
+                           <TextField fx:id="IMAP_Area" prefWidth="200.0" />
                            </children>
                            <opaqueInsets>
                               <Insets />
@@ -79,7 +79,7 @@
                   </VBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Valider">
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onValidateEmailButtonClick" text="Valider">
                            <HBox.margin>
                               <Insets top="100.0" />
                            </HBox.margin>

@@ -12,10 +12,10 @@ import com.example.detection_spam.model.Mail;
  * @version 1.0.0
  */
 public class EmailUtils {
-    public static Folder[] emailConnect() throws MessagingException {
-        String host = "imap.gmx.com";
-        String username = "javamailspam@gmx.fr";
-        String password = "7hkCMpnu2iyP49V";
+    public static Folder[] emailConnect(String host, String username, String password) throws MessagingException {
+        //String host = "imap.gmx.com";
+        //String username = "javamailspam@gmx.fr";
+        //String password = "7hkCMpnu2iyP49V";
 
         Properties props = System.getProperties();
         props.setProperty("mail.imap.ssl.enable", "true");

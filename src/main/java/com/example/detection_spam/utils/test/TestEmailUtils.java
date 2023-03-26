@@ -17,7 +17,7 @@ import static com.example.detection_spam.utils.EmailUtils.emailConnect;
 public class TestEmailUtils {
     private static void testConnexion()  {
         try {
-            System.out.println(emailConnect());
+            System.out.println(emailConnect("imap.gmx.com","javamailspam@gmx.fr", "7hkCMpnu2iyP49V"));
 
         }catch(Exception e){
             System.err.println(e);
@@ -27,7 +27,7 @@ public class TestEmailUtils {
 
     private static void testParseMails() {
         try {
-            ArrayList<Mail> mails = ParseEmail(emailConnect());
+            ArrayList<Mail> mails = ParseEmail(emailConnect("imap.gmx.com","javamailspam@gmx.fr", "7hkCMpnu2iyP49V"));
             for(Mail mail : mails) {
                 System.out.println(mail.getText());
                 System.out.println("\n*******************************\n");

@@ -24,8 +24,7 @@ public class FileUtils {
             try(BufferedReader br = Files.newBufferedReader(P1)){
                 StringBuilder res = new StringBuilder();
                 String lines = br.readLine();
-                if (lines != null)
-                    subject = lines;
+                subject = new File(filePath).getName();
                 while(lines != null){
                     res.append(lines);
                     lines = br.readLine();
