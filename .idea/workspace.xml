@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="715cd864-f7ef-4320-8f0f-25ba57551ea3" name="Changes" comment="Add algorithmes et ses tests&#10;Fix la class dictionary">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/MainMenuController.java" afterDir="false" />
+    <list default="true" id="715cd864-f7ef-4320-8f0f-25ba57551ea3" name="Changes" comment="Update Interface">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/MailView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/MailContentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/MainMenuView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/model/Mail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/model/Mail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/utils/EmailUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/utils/EmailUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/utils/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/utils/FileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/utils/test/TestEmailUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/utils/test/TestEmailUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/MailContentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/MailContentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/MainMenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/mail-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/mail-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/main-menu-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/main-menu-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679241035440</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Update Interface">
+      <created>1679869003593</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679869003593</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -218,6 +218,7 @@
     <MESSAGE value="Add class Main terminée et test class mail" />
     <MESSAGE value="ajout partiel de la javadoc par jérôme" />
     <MESSAGE value="Add algorithmes et ses tests&#10;Fix la class dictionary" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add algorithmes et ses tests&#10;Fix la class dictionary" />
+    <MESSAGE value="Update Interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Interface" />
   </component>
 </project>
