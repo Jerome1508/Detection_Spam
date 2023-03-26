@@ -83,6 +83,7 @@ public class TestDictionary {
         // Test 1 : on ajoute un mot spam
         dico1.majProbaOrAdd("test1", true);
         nbSuccessfulTest += dico1.getProbaSpam("test1") == 1 ? 1 : 0;
+        System.out.println(dico1.getProbaSpam("test1"));
         nbSuccessfulTest += dico1.getProbaNotSpam("test1") == 0 ? 1 : 0;
 
         // Test 2 : on ajoute un mot non spam
@@ -226,11 +227,11 @@ public class TestDictionary {
         //testConstructor();
         //testgetProbaSpam();
         //testgetProbaNotSpam();
-        //testMajProbaOrAdd();
+        testMajProbaOrAdd();
         //testSerialisable();
         //testDeserialisable();
-        //testGetNbSpamToLearn();
-        //testGetNbNotSpamToLearn();
+        //testGetAddNbSpamToLearn();
+        //testGetAddNbNotSpamToLearn();
         //testContainsWord();
     }
 }

@@ -20,14 +20,17 @@ public class FileUtils {
     public static Mail parseFile(String filePath) {
         if (filePath.endsWith(".txt")) {
             Path P1 = Paths.get(filePath);
+            String subject = "";
             try(BufferedReader br = Files.newBufferedReader(P1)){
                 StringBuilder res = new StringBuilder();
                 String lines = br.readLine();
+                if (lines != null)
+                    subject = lines;
                 while(lines != null){
                     res.append(lines);
                     lines = br.readLine();
                 }
-                return new Mail(res.toString());
+                return new Mail(res.toString(), subject);
             }catch(IOException e){
                 e.printStackTrace();
             }

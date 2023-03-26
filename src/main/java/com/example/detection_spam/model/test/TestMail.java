@@ -20,17 +20,17 @@ public class TestMail {
      */
     private static void testConstructeur() {
         // on essaie de creer un mail
-        Mail mail1 = new Mail("Ceci est un test");
+        Mail mail1 = new Mail("Ceci est un test", "ceci est un sujet de mail");
 
         // on essaie de creer un mail avec du text vide
-        Mail mail2 = new Mail("");
+        Mail mail2 = new Mail("", "");
 
         // on essaie de creer un mail avec des sauts de lignes
-        Mail mail3 = new Mail("Ceci est un /n test");
+        Mail mail3 = new Mail("Ceci est un /n test", "ceci est un sujet de mail");
 
         // on essaie de creer un mail avec un content == a null;
         try {
-            Mail mail4 = new Mail(null);
+            Mail mail4 = new Mail(null, null);
             System.err.println("Le contenu du mail peut etre null, alors que ce n'est pas le comportement attendu");
         } catch (IllegalArgumentException e) {
         }
@@ -39,15 +39,33 @@ public class TestMail {
     /**
      * méthode qui test le getText() de la class mail
      */
-    private static void testgetText() {
+    private static void testGetText() {
         String content = "Ceci est un test";
+        String subject = "ceci est un sujet de mail";
 
-        Mail mail1 = new Mail(content);
+        Mail mail1 = new Mail(content, subject);
 
         if(! mail1.getText().equals(content)) {
             System.err.println("Le getText() renvoie : \"" + mail1.getText() + "\" alors qu'on attendait \"" + content + "\"...");
         } else {
             System.out.println("test getText() passe avec Succes");
+        }
+
+    }
+
+    /**
+     * méthode qui test le getSubject() de la class mail
+     */
+    private static void testGetSubject() {
+        String content = "Ceci est un test";
+        String subject = "ceci est un sujet de mail";
+
+        Mail mail1 = new Mail(content, subject);
+
+        if(! mail1.getSubject().equals(subject)) {
+            System.err.println("Le getSubject() renvoie : \"" + mail1.getSubject() + "\" alors qu'on attendait \"" + subject + "\"...");
+        } else {
+            System.out.println("test getSubject() passe avec Succes");
         }
 
     }
@@ -58,8 +76,9 @@ public class TestMail {
      */
     private static void testGetSetEtat() {
         String content = "Ceci est un test";
+        String subject = "ceci est un sujet de mail";
         int nbSuccessfulTest = 0;
-        Mail mail1 = new Mail(content);
+        Mail mail1 = new Mail(content, subject);
 
         // test non traitee par defaut
         if(! mail1.getState().equals(State.UNTREATED)) {
@@ -102,7 +121,8 @@ public class TestMail {
      */
     public static void main(String[] args) {
         testConstructeur();
-        testgetText();
+        testGetText();
         testGetSetEtat();
+        testGetSubject();
     }
 }

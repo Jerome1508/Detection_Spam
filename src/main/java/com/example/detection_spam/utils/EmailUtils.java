@@ -65,7 +65,7 @@ public class EmailUtils {
                         content += getcontentFromMultipartMail(mimeMultipart);
                     }
 
-                    Mail mail = new Mail(content);
+                    Mail mail = new Mail(content, message.getSubject());
                     mails.add(mail);
                 }
                 folder.close();

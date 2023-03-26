@@ -14,16 +14,19 @@ public class Mail {
 
     private String content;
 
+    private String subject;
+
     private State state;
 
     /**
      * Constructeur de la classe Mail
      * @param content le texte du mail
      */
-    public Mail(String content) {
+    public Mail(String content, String subject) {
 
         if(content != null) {
             this.content = content;
+            this.subject = subject;
             this.state = State.UNTREATED;
         } else {
             throw new IllegalArgumentException("Le contenu d'un mail ne peut pas etre null");
@@ -54,7 +57,16 @@ public class Mail {
         return state;
     }
 
+    /**
+     * Renvoie le sujet du mail
+     * @return le sujet du mail
+     */
+    public String getSubject() {
+        return subject;
+    }
 
-
-
+    @Override
+    public String toString() {
+        return subject;
+    }
 }

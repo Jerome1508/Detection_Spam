@@ -21,12 +21,12 @@ public class TestFileUtils {
      * TODO méthode qui test le constructeur de la class dictionnaire
      */
     private static void testParseFile() {
-        Mail mailtest = FileUtils.parseFile("C:\\Users\\m.bailhe\\IdeaProjects\\Detection_Spam\\src\\main\\resources\\Data\\base_text\\Test.txt");
+        Mail mailtest = FileUtils.parseFile("src/main/resources/Data/base_text/Test.txt");
         System.out.println(mailtest.getText());
     }
 
     private static void testParseFolder() {
-        ArrayList<Mail> mails = FileUtils.parseFolder("C:\\Users\\m.bailhe\\IdeaProjects\\Detection_Spam\\src\\main\\resources\\Data\\base_text");
+        ArrayList<Mail> mails = FileUtils.parseFolder("src/main/resources/Data/base_text");
         mails.forEach(x -> System.out.println(x.getText()));
     }
 
