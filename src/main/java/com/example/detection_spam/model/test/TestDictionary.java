@@ -227,8 +227,8 @@ public class TestDictionary {
         //testConstructor();
         //testgetProbaSpam();
         //testgetProbaNotSpam();
-        testMajProbaOrAdd();
-        //testSerialisable();
+        //testMajProbaOrAdd();
+        testSerialisable();
         //testDeserialisable();
         //testGetAddNbSpamToLearn();
         //testGetAddNbNotSpamToLearn();

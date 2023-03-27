@@ -23,11 +23,6 @@ public class EmailUtils {
         Store store = session.getStore("imap");
         store.connect(host, username, password);
         Folder[] folderList = store.getDefaultFolder().list("*");
-        for (javax.mail.Folder folder : folderList) {
-            if ((folder.getType() & javax.mail.Folder.HOLDS_MESSAGES) != 0) {
-                System.out.println(folder.getFullName() + ": " + folder.getMessageCount());
-            }
-        }
         store.close();
         return folderList;
     }
@@ -37,7 +32,7 @@ public class EmailUtils {
         for (int i = 0; i < mpt.getCount(); i++) {
             BodyPart bodyPart = mpt.getBodyPart(i);
             if (bodyPart.isMimeType("text/plain")) {
-                res = "\n" + bodyPart.getContent();
+                res = bodyPart.getContent() + "\n";
             }
             else {
                 if (bodyPart.getContent() instanceof MimeMultipart){
@@ -56,7 +51,7 @@ public class EmailUtils {
                 folder.open(Folder.READ_ONLY);
                 for (int i = 1; i <= folder.getMessageCount(); i++) {
                     Message message = folder.getMessage(i);
-                    String content = message.getSubject();
+                    String content = "";
                     if (message.isMimeType("TEXT/plain")) {
                         content += message.getContent().toString();
                     }
