@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.detection_spam.ConnectionController">
+   <VBox>
+      <children>
+            <HBox alignment="CENTER">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="355.0" prefWidth="289.0">
+                     <children>
+                        <Label text="Récupérer depuis un dossier">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                     </Label>
+                        <HBox alignment="TOP_RIGHT" prefHeight="10.0" prefWidth="285.0">
+                           <children>
+                              <Label text="Chemin : " />
+                           <TextField fx:id="searchPath" editable="false" prefWidth="216.0" />
+                           </children>
+                           <VBox.margin>
+                              <Insets right="10.0" top="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onSearchFileButtonClick" text="Choisir un dossier">
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="validateFolderButton" mnemonicParsing="false" onAction="#onValidateFolderButtonClick" text="Valider">
+                           <VBox.margin>
+                              <Insets top="174.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" />
+                  <VBox prefHeight="355.0" prefWidth="293.0">
+                     <children>
+                        <VBox alignment="TOP_CENTER" prefHeight="33.0" prefWidth="289.0">
+                           <children>
+                              <Label text="Récupérer depuis une boîte mail">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                           </Label>
+                              <HBox prefHeight="100.0" prefWidth="200.0" />
+                              <HBox alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="289.0">
+                                 <children>
+                                    <Label text="Email : " />
+                                 <TextField fx:id="emailArea" prefWidth="200.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets right="10.0" top="20.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="TOP_RIGHT" prefHeight="0.0" prefWidth="289.0">
+                                 <children>
+                                    <Label text="MDP : " />
+                                 <PasswordField fx:id="passwordArea" prefHeight="40.0" prefWidth="200.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets right="10.0" top="20.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="TOP_RIGHT" prefHeight="11.0" prefWidth="289.0">
+                                 <children>
+                                    <Label text="Imap : " />
+                                 <TextField fx:id="IMAP_Area" prefWidth="200.0" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets right="10.0" top="20.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <HBox alignment="CENTER" prefHeight="187.0" prefWidth="294.0">
+                           <children>
+                              <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onValidateEmailButtonClick" text="Valider">
+                                 <HBox.margin>
+                                    <Insets top="100.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+               </VBox>
+               </children>
+            <padding>
+               <Insets left="5.0" right="5.0" top="20.0" />
+            </padding>
+            </HBox>
+         <HBox alignment="CENTER" prefHeight="94.0" prefWidth="599.0">
+            <children>
+               <Label text="Acceptation :" />
+               <ChoiceBox fx:id="AcceptanceChoiceBox" prefWidth="150.0">
+                  <HBox.margin>
+                     <Insets left="20.0" />
+                  </HBox.margin></ChoiceBox>
+            </children>
+         </HBox>
+      </children>
+   </VBox>
+</Pane>

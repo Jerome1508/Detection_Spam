@@ -66,7 +66,7 @@ public class TestAlgorithm {
         Dictionary dico1 = new Dictionary("dicoSaved.ser");
 
         List<Mail> toTreat = FileUtils.parseFolder("src/main/resources/Data/base_text/analyse");
-        Algorithm.analyse(toTreat, dico1, 0.5);
+        Algorithm.analyse(toTreat, dico1, 0.6);
 
         int nbSuccess = 0;
         int nbFailed = 0;
