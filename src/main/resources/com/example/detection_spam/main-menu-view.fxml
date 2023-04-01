@@ -21,7 +21,7 @@
                         <Insets bottom="20.0" left="10.0" right="10.0" />
                      </VBox.margin>
                   </ListView>
-                  <Button mnemonicParsing="false" text="-&gt;">
+                  <Button mnemonicParsing="false" onAction="#onClickRightArrowButton" text="-&gt;">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>
@@ -42,7 +42,7 @@
                      <VBox.margin>
                         <Insets bottom="20.0" left="10.0" right="10.0" />
                      </VBox.margin></ListView>
-                  <Button mnemonicParsing="false" text="&lt;-">
+                  <Button mnemonicParsing="false" onAction="#onClickLeftArrowButton" text="&lt;-">
                      <VBox.margin>
                         <Insets bottom="10.0" />
                      </VBox.margin>

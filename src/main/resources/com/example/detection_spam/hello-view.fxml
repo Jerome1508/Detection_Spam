@@ -17,7 +17,7 @@
                   <HBox alignment="TOP_RIGHT" prefHeight="10.0" prefWidth="285.0">
                      <children>
                         <Label text="Chemin : " />
-                     <TextField fx:id="searchPath" prefWidth="216.0" />
+                     <TextField fx:id="searchPath" editable="false" prefWidth="216.0" />
                      </children>
                      <VBox.margin>
                         <Insets right="10.0" top="20.0" />
