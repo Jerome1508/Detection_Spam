@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainMenuController {
@@ -123,6 +124,14 @@ public class MainMenuController {
             spamListView.getItems().add(currentMail);
             not_spamListView.getItems().remove(currentMail);
         }
+
+    }
+
+    @FXML
+    private void onLearningButton()  {
+
+        Algorithm.learning(new ArrayList<Mail>(spamListView.getItems()), true,  new Dictionary("dicoSaved.ser"));
+        Algorithm.learning(new ArrayList<Mail>(not_spamListView.getItems()), false,  new Dictionary("dicoSaved.ser"));
 
     }
 

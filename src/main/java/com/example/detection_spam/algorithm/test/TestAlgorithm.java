@@ -117,7 +117,7 @@ public class TestAlgorithm {
      * @param args
      */
     public static void main (String[] args) {
-        testLearning();
+        //testLearning();
         testAnalyse();
     }
 }
