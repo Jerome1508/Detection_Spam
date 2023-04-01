@@ -1,0 +1,22 @@
+Index: demo/src/main/java/com/example/demo/HelloController.java
+===================================================================
+diff --git a/demo/src/main/java/com/example/demo/HelloController.java b/demo/src/main/java/com/example/demo/HelloController.java
+deleted file mode 100644
+--- a/demo/src/main/java/com/example/demo/HelloController.java	(revision b738eec08f4a5ffa2c8bade6b67177c87a2ba2fe)
++++ /dev/null	(revision b738eec08f4a5ffa2c8bade6b67177c87a2ba2fe)
+@@ -1,14 +0,0 @@
+-package com.example.demo;
+-
+-import javafx.fxml.FXML;
+-import javafx.scene.control.Label;
+-
+-public class HelloController {
+-    @FXML
+-    private Label welcomeText;
+-
+-    @FXML
+-    protected void onHelloButtonClick() {
+-        welcomeText.setText("Welcome to JavaFX Application!");
+-    }
+-}
+\ No newline at end of file
