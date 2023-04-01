@@ -28,10 +28,10 @@ public class TestAlgorithm {
     private static void testLearning() {
         Dictionary dico1 = new Dictionary();
 
-        List<Mail> spams = FileUtils.parseFolder("src/main/resources/Data/base_text/spam");
+        List<Mail> spams = FileUtils.parseFolder("src/main/resources/Data/base_text/training_spam");
         Algorithm.learning(spams, true, dico1);
 
-        List<Mail> hams = FileUtils.parseFolder("src/main/resources/Data/base_text/ham");
+        List<Mail> hams = FileUtils.parseFolder("src/main/resources/Data/base_text/training_ham");
         Algorithm.learning(hams, false, dico1);
 
         System.out.println("\nProba SPAM : ");
@@ -72,14 +72,15 @@ public class TestAlgorithm {
         int nbFailed = 0;
         int index = 0;
         for (Mail mail : toTreat ) {
-            if(index < 50) {
+            System.out.println(mail);
+            if (mail.toString().contains("ham")) {
                 if(mail.getState() == State.NOT_SPAM) {
                     nbSuccess ++;
                 } else {
                     System.err.println("Mail n°" + index + " a ete juge SPAM et pas NOT_SPAM");
                     nbFailed ++;
                 }
-            } else {
+            } else if (mail.toString().contains("spam")) {
                 if(mail.getState() == State.SPAM) {
                     nbSuccess ++;
                 } else {
@@ -87,14 +88,28 @@ public class TestAlgorithm {
                     nbFailed ++;
                 }
             }
+//            if(index < 50) {
+//                if(mail.getState() == State.NOT_SPAM) {
+//                    nbSuccess ++;
+//                } else {
+//                    System.err.println("Mail n°" + index + " a ete juge SPAM et pas NOT_SPAM");
+//                    nbFailed ++;
+//                }
+//            } else {
+//                if(mail.getState() == State.SPAM) {
+//                    nbSuccess ++;
+//                } else {
+//                    System.err.println("Mail n°" + index + " a ete juge NOT_SPAM et pas SPAM");
+//                    nbFailed ++;
+//                }
+//            }
             index ++;
 
         }
 
-        System.out.println("Succes : " + nbSuccess + "/100");
+        System.out.println("Succes : " + nbSuccess);
         System.out.println("Echec : " + nbFailed);
-
-
+        System.out.println("proportion de réussite : "+ (float) nbSuccess * 100 / (nbFailed + nbSuccess) + "%");
     }
 
     /**
@@ -103,6 +118,6 @@ public class TestAlgorithm {
      */
     public static void main (String[] args) {
         testLearning();
-        //testAnalyse();
+        testAnalyse();
     }
 }

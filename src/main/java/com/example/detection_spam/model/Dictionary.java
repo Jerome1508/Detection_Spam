@@ -103,7 +103,6 @@ public class Dictionary implements Serializable {
         double ret;
         try {
             double probaSpam = ((double) DicoSpam.get(word)) / ((double) this.nbSpamToLearn);
-            System.out.println(probaSpam);
             double probaNotSpam = ((double) DicoNotSpam.get(word)) / ((double) this.nbNotSpamToLearn);
             ret = probaSpam / (probaSpam + probaNotSpam);
         } catch (Exception e) {
