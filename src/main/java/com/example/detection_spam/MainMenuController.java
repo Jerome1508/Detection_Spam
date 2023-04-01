@@ -27,6 +27,8 @@ public class MainMenuController {
     @FXML
     private  ListView<Mail> not_spamListView;
 
+    private Mail currentMail;
+
 
     public void initialize(List<Mail> mails) throws IOException {
 
@@ -44,10 +46,12 @@ public class MainMenuController {
             @Override
             public void handle(MouseEvent click) {
 
+                //Use ListView's getSelected Item
+                currentMail = spamListView.getSelectionModel()
+                        .getSelectedItem();
+
                 if (click.getClickCount() == 2) {
-                    //Use ListView's getSelected Item
-                    Mail currentMail = spamListView.getSelectionModel()
-                            .getSelectedItem();
+
                     //use this to do whatever you want to. Open Link etc.
                     try {
                         onItemListClick(currentMail);
@@ -63,10 +67,12 @@ public class MainMenuController {
             @Override
             public void handle(MouseEvent click) {
 
+                //Use ListView's getSelected Item
+                currentMail = not_spamListView.getSelectionModel()
+                        .getSelectedItem();
+
                 if (click.getClickCount() == 2) {
-                    //Use ListView's getSelected Item
-                    Mail currentMail = not_spamListView.getSelectionModel()
-                            .getSelectedItem();
+
                     //use this to do whatever you want to. Open Link etc.
                     try {
                         onItemListClick(currentMail);
@@ -89,7 +95,6 @@ public class MainMenuController {
         mailContentStage.setTitle(mail.getSubject());
         mailContentStage.setScene(scene);
         mailContentStage.setResizable(false);
-        //Todo mailContentStage.initOwner(connectionStage);
         mailContentStage.initModality(Modality.APPLICATION_MODAL);
         MailContentController controller = fxmlLoader.getController();
         controller.initialize(mail);
@@ -98,6 +103,29 @@ public class MainMenuController {
 
 
     }
+    @FXML
+    private void onClickRightArrowButton() {
+
+        if(currentMail != null && currentMail.getState() == State.SPAM) {
+            currentMail.setState(State.NOT_SPAM);
+            spamListView.getItems().remove(currentMail);
+            not_spamListView.getItems().add(currentMail);
+
+        }
+
+    }
+
+    @FXML
+    private void onClickLeftArrowButton()  {
+
+        if(currentMail != null&& currentMail.getState() == State.NOT_SPAM) {
+            currentMail.setState(State.SPAM);
+            spamListView.getItems().add(currentMail);
+            not_spamListView.getItems().remove(currentMail);
+        }
+
+    }
+
 
 
 }
