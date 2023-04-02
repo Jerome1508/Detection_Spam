@@ -1,6 +1,6 @@
 package com.example.detection_spam.controleur;
 
-import com.example.detection_spam.HelloApplication;
+import com.example.detection_spam.MainApplication;
 import com.example.detection_spam.algorithm.Algorithm;
 import com.example.detection_spam.model.AcceptanceType;
 import com.example.detection_spam.model.Dictionary;
@@ -75,7 +75,7 @@ public class ConnectionController implements Initializable {
             Algorithm.analyse(mails, new Dictionary("dicoSaved.ser"), filter);
             // création de la scène
             Stage mainMenuStage = new Stage(StageStyle.DECORATED);
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main-menu-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-menu-view.fxml"));
 
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             mainMenuStage.setTitle("Tri des mails");
@@ -108,7 +108,7 @@ public class ConnectionController implements Initializable {
 
             // création de la scène
             Stage mainMenuStage = new Stage(StageStyle.DECORATED);
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main-menu-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-menu-view.fxml"));
 
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             mainMenuStage.setTitle("Tri des mails");

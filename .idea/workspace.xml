@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="715cd864-f7ef-4320-8f0f-25ba57551ea3" name="Changes" comment="Ajout des variations d'acceptation">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/ConnectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/controleur/ConnectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/MailContentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/controleur/MailContentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/controleur/MainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/connection-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/connection-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/mail-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/mail-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/main-menu-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/main-menu-view.fxml" afterDir="false" />
+    <list default="true" id="715cd864-f7ef-4320-8f0f-25ba57551ea3" name="Changes" comment="Fix Architecture">
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/controleur/ConnectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/controleur/ConnectionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/controleur/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/controleur/MainMenuController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,9 +72,9 @@
       <recent name="com.example.detection_spam" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HelloApplication">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.detection_spam.HelloApplication" />
+  <component name="RunManager" selected="Application.MainApplication">
+    <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.detection_spam.MainApplication" />
       <module name="Detection_Spam" />
       <extension name="coverage">
         <pattern>
@@ -144,7 +140,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.MainApplication" />
         <item itemvalue="Application.TestAlgorithm" />
         <item itemvalue="Application.TestDictionary" />
         <item itemvalue="Application.TestEmailUtils" />
@@ -224,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680370762884</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fix Architecture">
+      <created>1680423161048</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680423161048</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -249,6 +252,7 @@
     <MESSAGE value="Add left and right arrow button" />
     <MESSAGE value="Ajout du bouton de ré-entrainement" />
     <MESSAGE value="Ajout des variations d'acceptation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout des variations d'acceptation" />
+    <MESSAGE value="Fix Architecture" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Architecture" />
   </component>
 </project>
