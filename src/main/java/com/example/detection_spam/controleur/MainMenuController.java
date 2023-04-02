@@ -5,12 +5,10 @@ import com.example.detection_spam.algorithm.Algorithm;
 import com.example.detection_spam.model.Dictionary;
 import com.example.detection_spam.model.Mail;
 import com.example.detection_spam.model.State;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -18,6 +16,8 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MainMenuController {
 
@@ -28,6 +28,9 @@ public class MainMenuController {
     private  ListView<Mail> notSpamListView;
 
     private Mail currentMail;
+
+    private static Logger logger = Logger.getLogger(MainMenuController.class.getPackage().getName());
+
 
 
     public void initialize(List<Mail> mails) {
@@ -50,7 +53,7 @@ public class MainMenuController {
                 try {
                     onItemListClick(currentMail);
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    logger.log(Level.SEVERE, (e.getMessage()));
                 }
             }
         });
@@ -63,7 +66,7 @@ public class MainMenuController {
                 try {
                     onItemListClick(currentMail);
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    logger.log(Level.SEVERE, (e.getMessage()));
                 }
             }
         });
