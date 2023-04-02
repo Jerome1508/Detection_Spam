@@ -116,6 +116,22 @@ public class TestMail {
     }
 
     /**
+     * méthode qui test le toString() de la classe mail
+     */
+    public static void testToString() {
+        String content = "Ceci est un test";
+        String subject = "ceci est un sujet de mail";
+
+        Mail mail1 = new Mail(content, subject);
+
+        if(mail1.toString() == subject) {
+            System.out.println("test toString() passe avec Succes");
+        } else {
+            System.err.println("Le toString() renvoie : \"" + mail1.toString() + "\" alors qu'on attendait \"" + subject + "\"...");
+        }
+    }
+
+    /**
      * lance les différents tests
      * @param args
      */
@@ -124,5 +140,6 @@ public class TestMail {
         testGetText();
         testGetSetEtat();
         testGetSubject();
+        testToString();
     }
 }
