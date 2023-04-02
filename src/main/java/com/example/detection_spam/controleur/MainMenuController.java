@@ -1,14 +1,13 @@
-package com.example.detection_spam;
+package com.example.detection_spam.controleur;
 
+import com.example.detection_spam.HelloApplication;
 import com.example.detection_spam.algorithm.Algorithm;
 import com.example.detection_spam.model.Dictionary;
 import com.example.detection_spam.model.Mail;
 import com.example.detection_spam.model.State;
-import com.example.detection_spam.utils.FileUtils;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;

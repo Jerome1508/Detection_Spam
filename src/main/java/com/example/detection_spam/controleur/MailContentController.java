@@ -1,4 +1,4 @@
-package com.example.detection_spam;
+package com.example.detection_spam.controleur;
 
 import com.example.detection_spam.model.Mail;
 import com.example.detection_spam.model.State;

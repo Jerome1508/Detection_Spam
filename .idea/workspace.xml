@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="715cd864-f7ef-4320-8f0f-25ba57551ea3" name="Changes" comment="Ajout du bouton de ré-entrainement">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/ConnectionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/model/AcceptanceType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/connection-view.fxml" afterDir="false" />
+    <list default="true" id="715cd864-f7ef-4320-8f0f-25ba57551ea3" name="Changes" comment="Ajout des variations d'acceptation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dicoSaved.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/MailContentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/MailContentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/algorithm/test/TestAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/algorithm/test/TestAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/ConnectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/controleur/ConnectionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/MailContentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/controleur/MailContentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/controleur/MainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/connection-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/connection-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/mail-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/mail-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/main-menu-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/detection_spam/main-menu-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +82,7 @@
       <module name="Detection_Spam" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.detection_spam.*" />
+          <option name="PATTERN" value="com.example.detection_spam.controleur.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -218,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680366560882</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Ajout des variations d'acceptation">
+      <created>1680370762884</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680370762884</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -242,6 +248,7 @@
     <MESSAGE value="Update Interface" />
     <MESSAGE value="Add left and right arrow button" />
     <MESSAGE value="Ajout du bouton de ré-entrainement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout du bouton de ré-entrainement" />
+    <MESSAGE value="Ajout des variations d'acceptation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout des variations d'acceptation" />
   </component>
 </project>

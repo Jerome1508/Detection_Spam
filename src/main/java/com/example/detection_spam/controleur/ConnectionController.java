@@ -1,5 +1,6 @@
-package com.example.detection_spam;
+package com.example.detection_spam.controleur;
 
+import com.example.detection_spam.HelloApplication;
 import com.example.detection_spam.algorithm.Algorithm;
 import com.example.detection_spam.model.AcceptanceType;
 import com.example.detection_spam.model.Dictionary;
