@@ -16,8 +16,8 @@ import java.util.Map;
  */
 public class Dictionary implements Serializable {
 
-    private Map<String, Integer> DicoSpam;
-    private Map<String, Integer> DicoNotSpam;
+    private Map<String, Integer> dicoSpam;
+    private Map<String, Integer> dicoNotSpam;
 
     private int nbSpamToLearn;
 
@@ -32,11 +32,11 @@ public class Dictionary implements Serializable {
     private int nbNotSpamToLearn;
 
     public Map<String, Integer> getDicoSpam() {
-        return DicoSpam;
+        return dicoSpam;
     }
 
     public Map<String, Integer> getDicoNotSpam() {
-        return DicoNotSpam;
+        return dicoNotSpam;
     }
 
 
@@ -47,17 +47,14 @@ public class Dictionary implements Serializable {
     public Dictionary(String path) {
         ObjectInputStream ois = null;
 
-        try {
-            final FileInputStream fichier = new FileInputStream(path);
+        try (final FileInputStream fichier = new FileInputStream(path)){
             ois = new ObjectInputStream(fichier);
             Dictionary temp = (Dictionary) ois.readObject();
-            this.DicoNotSpam = temp.getDicoNotSpam();
-            this.DicoSpam = temp.getDicoSpam();
+            this.dicoNotSpam = temp.getDicoNotSpam();
+            this.dicoSpam = temp.getDicoSpam();
             this.nbSpamToLearn = temp.getNbSpamToLearn();
             this.nbNotSpamToLearn = temp.getNbNotSpamToLearn();
-        } catch (final java.io.IOException e) {
-            e.printStackTrace();
-        } catch (final ClassNotFoundException e) {
+        } catch (final ClassNotFoundException | java.io.IOException e) {
             e.printStackTrace();
         } finally {
             try {
@@ -74,8 +71,8 @@ public class Dictionary implements Serializable {
      * On construit un dictionnaire avec aucun mot au début
      */
     public Dictionary() {
-        this.DicoSpam = new HashMap<String, Integer>();
-        this.DicoNotSpam = new HashMap<String, Integer>();
+        this.dicoSpam = new HashMap<>();
+        this.dicoNotSpam = new HashMap<>();
         this.nbNotSpamToLearn = 0;
         this.nbSpamToLearn = 0;
     }
@@ -102,8 +99,8 @@ public class Dictionary implements Serializable {
     public double getProbaSpam(String word) {
         double ret;
         try {
-            double probaSpam = ((double) DicoSpam.get(word)) / ((double) this.nbSpamToLearn);
-            double probaNotSpam = ((double) DicoNotSpam.get(word)) / ((double) this.nbNotSpamToLearn);
+            double probaSpam = ((double) dicoSpam.get(word)) / ((double) this.nbSpamToLearn);
+            double probaNotSpam = ((double) dicoNotSpam.get(word)) / ((double) this.nbNotSpamToLearn);
             ret = probaSpam / (probaSpam + probaNotSpam);
         } catch (Exception e) {
             ret = 0.00;
@@ -119,8 +116,8 @@ public class Dictionary implements Serializable {
     public double getProbaNotSpam(String word) {
         double ret;
         try {
-            double probaSpam = ((double) DicoSpam.get(word)) / ((double) this.nbSpamToLearn);
-            double probaNotSpam = ((double) DicoNotSpam.get(word)) / ((double) this.nbNotSpamToLearn);
+            double probaSpam = ((double) dicoSpam.get(word)) / ((double) this.nbSpamToLearn);
+            double probaNotSpam = ((double) dicoNotSpam.get(word)) / ((double) this.nbNotSpamToLearn);
             ret = probaNotSpam / (probaSpam + probaNotSpam);
         } catch (Exception e) {
             ret = 0;
@@ -134,7 +131,7 @@ public class Dictionary implements Serializable {
      * @return true si le mot est contenu dans les dictionnaires, false sinon
      */
     public boolean containsWord(String word) {
-        return DicoSpam.containsKey(word);
+        return dicoSpam.containsKey(word);
     }
 
     /**
@@ -144,8 +141,8 @@ public class Dictionary implements Serializable {
      * @param spam true si le mot provient d'un spam, false sinon
      */
     private void addWord(String word, boolean spam) {
-        DicoSpam.put(word, spam ? 1 : 0);
-        DicoNotSpam.put(word, spam ? 0 : 1);
+        dicoSpam.put(word, spam ? 1 : 0);
+        dicoNotSpam.put(word, spam ? 0 : 1);
     }
 
     /**
@@ -154,9 +151,9 @@ public class Dictionary implements Serializable {
      */
     public void majProbaOrAdd(String word, boolean spam) {
 
-        if(DicoSpam.containsKey(word)) {
-            DicoSpam.put(word, DicoSpam.get(word) + (spam ? 1 : 0));
-            DicoNotSpam.put(word, DicoNotSpam.get(word) + (spam ? 0 : 1));
+        if(dicoSpam.containsKey(word)) {
+            dicoSpam.put(word, dicoSpam.get(word) + (spam ? 1 : 0));
+            dicoNotSpam.put(word, dicoNotSpam.get(word) + (spam ? 0 : 1));
         } else {
             addWord(word, spam);
         }
@@ -168,8 +165,8 @@ public class Dictionary implements Serializable {
     public void saveDico(String path) {
         ObjectOutputStream oos = null;
 
-        try {
-            final FileOutputStream fichier = new FileOutputStream(path);
+        try (final FileOutputStream fichier = new FileOutputStream(path)){
+
             oos = new ObjectOutputStream(fichier);
             oos.writeObject(this);
             oos.flush();
