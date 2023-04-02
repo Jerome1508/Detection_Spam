@@ -2,6 +2,7 @@ module com.example.detection_spam {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.mail;
+    requires java.logging;
 
 
     opens com.example.detection_spam to javafx.fxml;

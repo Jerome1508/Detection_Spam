@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="715cd864-f7ef-4320-8f0f-25ba57551ea3" name="Changes" comment="Fix Architecture">
+    <list default="true" id="715cd864-f7ef-4320-8f0f-25ba57551ea3" name="Changes" comment="SonarLint : Dictionary">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/controleur/ConnectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/controleur/ConnectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/controleur/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/controleur/MainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/model/test/TestDictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/model/test/TestDictionary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,10 +57,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "last_opened_file_path": "C:/Users/romai/Documents/Cours Java Intellij/Detection_Spam/src/main/resources/Data/base_text/analyse",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.37241378"
+    "project.structure.side.proportion": "0.37241378",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -72,7 +74,7 @@
       <recent name="com.example.detection_spam" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainApplication">
+  <component name="RunManager" selected="Application.TestDictionary">
     <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.detection_spam.MainApplication" />
       <module name="Detection_Spam" />
@@ -140,9 +142,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestDictionary" />
         <item itemvalue="Application.MainApplication" />
         <item itemvalue="Application.TestAlgorithm" />
-        <item itemvalue="Application.TestDictionary" />
         <item itemvalue="Application.TestEmailUtils" />
         <item itemvalue="Application.TestMail" />
       </list>
@@ -227,7 +229,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680423161048</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fix HelloApplication Name">
+      <created>1680423663997</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680423663997</updated>
+    </task>
+    <task id="LOCAL-00012" summary="SonarLint : Dictionary">
+      <created>1680424194650</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680424194650</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -253,6 +269,8 @@
     <MESSAGE value="Ajout du bouton de ré-entrainement" />
     <MESSAGE value="Ajout des variations d'acceptation" />
     <MESSAGE value="Fix Architecture" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Architecture" />
+    <MESSAGE value="Fix HelloApplication Name" />
+    <MESSAGE value="SonarLint : Dictionary" />
+    <option name="LAST_COMMIT_MESSAGE" value="SonarLint : Dictionary" />
   </component>
 </project>

@@ -11,6 +11,7 @@ import com.example.detection_spam.model.Mail;
 import com.example.detection_spam.model.State;
 import com.example.detection_spam.utils.FileUtils;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -112,12 +113,25 @@ public class TestAlgorithm {
         System.out.println("proportion de réussite : "+ (float) nbSuccess * 100 / (nbFailed + nbSuccess) + "%");
     }
 
+    private static void deleteSerializedDictionnary() {
+        File dictionnary = new File("dicoSaved.ser");
+        if (dictionnary.delete())
+            System.out.println("Dicosaved supprimé");
+        else
+            System.out.println("Dicosaved n'existe pas, pas de suppression");
+    }
+
     /**
      * lance les différents tests
      * @param args
      */
     public static void main (String[] args) {
-        //testLearning();
+        try {
+            deleteSerializedDictionnary();
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        testLearning();
         testAnalyse();
     }
 }
