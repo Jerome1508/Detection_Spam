@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="715cd864-f7ef-4320-8f0f-25ba57551ea3" name="Changes" comment="SonarLint : testDictionary">
+    <list default="true" id="715cd864-f7ef-4320-8f0f-25ba57551ea3" name="Changes" comment="SonarLint : Algorythme">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sauvegarde.ser" beforeDir="false" afterPath="$PROJECT_DIR$/sauvegarde.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/algorithm/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/algorithm/Algorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/algorithm/test/TestAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/detection_spam/algorithm/test/TestAlgorithm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +74,7 @@
       <recent name="com.example.detection_spam" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TestDictionary">
+  <component name="RunManager" selected="Application.TestAlgorithm">
     <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.detection_spam.MainApplication" />
       <module name="Detection_Spam" />
@@ -140,9 +142,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestAlgorithm" />
         <item itemvalue="Application.TestDictionary" />
         <item itemvalue="Application.MainApplication" />
-        <item itemvalue="Application.TestAlgorithm" />
         <item itemvalue="Application.TestEmailUtils" />
         <item itemvalue="Application.TestMail" />
       </list>
@@ -255,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680443105893</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="SonarLint : Algorythme">
+      <created>1680443861248</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680443861248</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -284,6 +293,7 @@
     <MESSAGE value="Fix HelloApplication Name" />
     <MESSAGE value="SonarLint : Dictionary" />
     <MESSAGE value="SonarLint : testDictionary" />
-    <option name="LAST_COMMIT_MESSAGE" value="SonarLint : testDictionary" />
+    <MESSAGE value="SonarLint : Algorythme" />
+    <option name="LAST_COMMIT_MESSAGE" value="SonarLint : Algorythme" />
   </component>
 </project>

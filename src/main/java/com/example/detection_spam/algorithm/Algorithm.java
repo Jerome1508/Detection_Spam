@@ -97,12 +97,11 @@ public class Algorithm {
                 }
             }
 
-            if(nbTreatableWord == 0) {
-                throw new ArithmeticException("Le mail ne contient aucun mot connu");
+            if(nbTreatableWord != 0) {
+                probaMail = probaMail / nbTreatableWord;
             }
-            probaMail = probaMail / nbTreatableWord;
 
-            logger.log( Level.INFO, String.format("Probabilite du mail : %d%",probaMail));
+            logger.log( Level.INFO, String.format("Probabilite du mail : %.2f%%",probaMail));
             if(probaMail > filter) {
                 mail.setState(State.SPAM);
             } else {

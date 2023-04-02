@@ -11,9 +11,9 @@ import com.example.detection_spam.model.Mail;
 import com.example.detection_spam.model.State;
 import com.example.detection_spam.utils.FileUtils;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Classe qui va effectuer les tests des différents algorithmes de la classe Algorithm
@@ -21,6 +21,8 @@ import java.util.List;
  * @version 1.0.0
  */
 public class TestAlgorithm {
+
+    private static Logger logger = Logger.getLogger(TestAlgorithm.class.getPackage().getName());
 
     /**
      * méthode qui test l'algorithme d'apprentissage de l'application
@@ -35,26 +37,43 @@ public class TestAlgorithm {
         List<Mail> hams = FileUtils.parseFolder("src/main/resources/Data/base_text/training_ham");
         Algorithm.learning(hams, false, dico1);
 
-        System.out.println("\nProba SPAM : ");
-        System.out.println("Proba Free : " + dico1.getProbaSpam("Free"));
-        System.out.println("Proba Go : " + dico1.getProbaSpam("Go"));
-        System.out.println("Proba I : " + dico1.getProbaSpam("I"));
-        System.out.println("Proba you : " + dico1.getProbaSpam("you"));
-        System.out.println("Proba Did : " + dico1.getProbaSpam("Did"));
+        logger.log( Level.INFO, String.format("\nProba SPAM : \n" +
+                "Proba Free : %.2f\n" +
+                "Proba I : %.2f\n" +
+                "Proba GO : %.2f\n" +
+                "Proba you : %.2f\n" +
+                "Proba Did : %.2f\n",
+                dico1.getProbaSpam("Free"),
+                dico1.getProbaSpam("Go"),
+                dico1.getProbaSpam("I"),
+                dico1.getProbaSpam("you"),
+                dico1.getProbaSpam("Did")));
 
-        System.out.println("\nProba Non SPAM : ");
-        System.out.println("Proba Free : " + dico1.getProbaNotSpam("Free"));
-        System.out.println("Proba Go : " + dico1.getProbaNotSpam("Go"));
-        System.out.println("Proba I : " + dico1.getProbaNotSpam("I"));
-        System.out.println("Proba you : " + dico1.getProbaNotSpam("you"));
-        System.out.println("Proba Did : " + dico1.getProbaNotSpam("Did"));
+        logger.log( Level.INFO, String.format("\nProba Non SPAM : \n" +
+                        "Proba Free : %.2f\n" +
+                        "Proba I : %.2f\n" +
+                        "Proba GO : %.2f\n" +
+                        "Proba you : %.2f\n" +
+                        "Proba Did : %.2f\n",
+                dico1.getProbaNotSpam("Free"),
+                dico1.getProbaNotSpam("Go"),
+                dico1.getProbaNotSpam("I"),
+                dico1.getProbaNotSpam("you"),
+                dico1.getProbaNotSpam("Did")));
 
-        System.out.println("\nSomme Proba: ");
-        System.out.println("Proba Free : " + (dico1.getProbaNotSpam("Free") + dico1.getProbaSpam("Free")));
-        System.out.println("Proba Go : " + (dico1.getProbaNotSpam("Go") + dico1.getProbaSpam("Go")));
-        System.out.println("Proba I : " + (dico1.getProbaNotSpam("I") + dico1.getProbaSpam("I")));
-        System.out.println("Proba you : " + (dico1.getProbaNotSpam("you") + dico1.getProbaSpam("you")));
-        System.out.println("Proba Did : " + (dico1.getProbaNotSpam("Did") + dico1.getProbaSpam("Did")));
+        logger.log( Level.INFO, String.format("\nSomme Proba: : \n" +
+                        "Proba Free : %f\n" +
+                        "Proba I : %f\n" +
+                        "Proba GO : %f\n" +
+                        "Proba you : %f\n" +
+                        "Proba Did : %f\n",
+                (dico1.getProbaNotSpam("Free") + dico1.getProbaSpam("Free")),
+                (dico1.getProbaNotSpam("Go") + dico1.getProbaSpam("Go")),
+                (dico1.getProbaNotSpam("I") + dico1.getProbaSpam("I")),
+                (dico1.getProbaNotSpam("you") + dico1.getProbaSpam("you")),
+                (dico1.getProbaNotSpam("Did") + dico1.getProbaSpam("Did"))));
+
+
 
     }
 
@@ -73,52 +92,33 @@ public class TestAlgorithm {
         int nbFailed = 0;
         int index = 0;
         for (Mail mail : toTreat ) {
-            System.out.println(mail);
             if (mail.toString().contains("ham")) {
                 if(mail.getState() == State.NOT_SPAM) {
                     nbSuccess ++;
                 } else {
-                    System.err.println("Mail n°" + index + " a ete juge SPAM et pas NOT_SPAM");
+                    logger.log( Level.WARNING, String.format("Mail n°%d a ete juge SPAM et pas NOT_SPAM", index));
                     nbFailed ++;
                 }
             } else if (mail.toString().contains("spam")) {
                 if(mail.getState() == State.SPAM) {
                     nbSuccess ++;
                 } else {
-                    System.err.println("Mail n°" + index + " a ete juge NOT_SPAM et pas SPAM");
+                    logger.log( Level.WARNING, String.format("Mail n°%d a ete juge NOT_SPAM et pas SPAM", index));
                     nbFailed ++;
                 }
             }
-//            if(index < 50) {
-//                if(mail.getState() == State.NOT_SPAM) {
-//                    nbSuccess ++;
-//                } else {
-//                    System.err.println("Mail n°" + index + " a ete juge SPAM et pas NOT_SPAM");
-//                    nbFailed ++;
-//                }
-//            } else {
-//                if(mail.getState() == State.SPAM) {
-//                    nbSuccess ++;
-//                } else {
-//                    System.err.println("Mail n°" + index + " a ete juge NOT_SPAM et pas SPAM");
-//                    nbFailed ++;
-//                }
-//            }
+
             index ++;
 
         }
 
-        System.out.println("Succes : " + nbSuccess);
-        System.out.println("Echec : " + nbFailed);
-        System.out.println("proportion de réussite : "+ (float) nbSuccess * 100 / (nbFailed + nbSuccess) + "%");
-    }
-
-    private static void deleteSerializedDictionnary() {
-        File dictionnary = new File("dicoSaved.ser");
-        if (dictionnary.delete())
-            System.out.println("Dicosaved supprimé");
-        else
-            System.out.println("Dicosaved n'existe pas, pas de suppression");
+        if(nbFailed + nbSuccess != 0) {
+            logger.log(Level.INFO, String.format("Succes : %d\n" +
+                            "Echec : %d\n" +
+                            "Proportion de réussite : %f%%",
+                    nbSuccess, nbFailed,
+                    (float) nbSuccess * 100 / (nbFailed + nbSuccess)));
+        }
     }
 
     /**
@@ -126,11 +126,6 @@ public class TestAlgorithm {
      * @param args
      */
     public static void main (String[] args) {
-        try {
-            deleteSerializedDictionnary();
-        } catch (Exception e) {
-            System.err.println(e);
-        }
         testLearning();
         testAnalyse();
     }
