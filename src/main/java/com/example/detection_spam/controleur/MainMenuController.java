@@ -41,44 +41,29 @@ public class MainMenuController {
             }
         }
 
-        spamListView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        spamListView.setOnMouseClicked(click -> {
+            //Use ListView's getSelected Item
+            currentMail = spamListView.getSelectionModel().getSelectedItem();
 
-            @Override
-            public void handle(MouseEvent click) {
-
-                //Use ListView's getSelected Item
-                currentMail = spamListView.getSelectionModel()
-                        .getSelectedItem();
-
-                if (click.getClickCount() == 2) {
-
-                    //use this to do whatever you want to. Open Link etc.
-                    try {
-                        onItemListClick(currentMail);
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
+            if (click.getClickCount() == 2) {
+                //use this to do whatever you want to. Open Link etc.
+                try {
+                    onItemListClick(currentMail);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
             }
         });
 
-        notSpamListView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
-            @Override
-            public void handle(MouseEvent click) {
+        notSpamListView.setOnMouseClicked(click -> {
+            currentMail = notSpamListView.getSelectionModel().getSelectedItem();
 
-                //Use ListView's getSelected Item
-                currentMail = notSpamListView.getSelectionModel()
-                        .getSelectedItem();
-
-                if (click.getClickCount() == 2) {
-
-                    //use this to do whatever you want to. Open Link etc.
-                    try {
-                        onItemListClick(currentMail);
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
+            if (click.getClickCount() == 2) {
+                try {
+                    onItemListClick(currentMail);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
             }
         });
