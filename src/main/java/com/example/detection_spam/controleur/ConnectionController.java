@@ -67,9 +67,9 @@ public class ConnectionController implements Initializable {
             AcceptanceType acceptance = AcceptanceChoiceBox.getValue();
 
             switch (acceptance) {
-                case Normal: filter = 0.6; break;
-                case Faux_négatif: filter = 0.5; break;
-                case Faux_positif: filter = 0.75; break;
+                case NORMAL: filter = 0.6; break;
+                case FAUX_NEGATIF: filter = 0.5; break;
+                case FAUX_POSITIF: filter = 0.75; break;
             }
 
             Algorithm.analyse(mails, new Dictionary("dicoSaved.ser"), filter);
@@ -96,13 +96,13 @@ public class ConnectionController implements Initializable {
         double filter = 0.6;
 
         if(emailArea.getText() != "" && passwordArea.getText() != "" && IMAP_Area.getText() != "") {
-            List<Mail> mails = EmailUtils.ParseEmail(EmailUtils.emailConnect(IMAP_Area.getText(), emailArea.getText() , passwordArea.getText()));
+            List<Mail> mails = EmailUtils.parseEmail(EmailUtils.emailConnect(IMAP_Area.getText(), emailArea.getText() , passwordArea.getText()));
             AcceptanceType acceptance = AcceptanceChoiceBox.getValue();
 
             switch (acceptance) {
-                case Normal: filter = 0.6; break;
-                case Faux_négatif: filter = 0.5; break;
-                case Faux_positif: filter = 0.75; break;
+                case NORMAL: filter = 0.6; break;
+                case FAUX_NEGATIF: filter = 0.5; break;
+                case FAUX_POSITIF: filter = 0.75; break;
             }
             Algorithm.analyse(mails, new Dictionary("dicoSaved.ser"), filter);
 
@@ -128,6 +128,6 @@ public class ConnectionController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         EnumSet<AcceptanceType> acceptanceTypes = EnumSet.allOf(AcceptanceType.class);
         AcceptanceChoiceBox.setItems(FXCollections.observableArrayList(acceptanceTypes));
-        AcceptanceChoiceBox.setValue(AcceptanceType.Normal);
+        AcceptanceChoiceBox.setValue(AcceptanceType.NORMAL);
     }
 }
