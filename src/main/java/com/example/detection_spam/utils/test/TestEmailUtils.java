@@ -3,13 +3,10 @@ package com.example.detection_spam.utils.test;
 import com.example.detection_spam.model.Mail;
 
 import javax.mail.MessagingException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Supplier;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 import static com.example.detection_spam.utils.EmailUtils.parseEmail;
 import static com.example.detection_spam.utils.EmailUtils.emailConnect;
