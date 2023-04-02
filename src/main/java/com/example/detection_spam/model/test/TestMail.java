@@ -8,12 +8,16 @@ package com.example.detection_spam.model.test;
 import com.example.detection_spam.model.State;
 import com.example.detection_spam.model.Mail;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * Classe qui va effectuer les tests unitaires sur la classe Mail
  * @author Alexis RAVAYROL, Romain PALAYRET
  * @version 1.0.0
  */
 public class TestMail {
+    private static Logger logger = Logger.getLogger(TestMail.class.getPackage().getName());
     static final String testContent = "Ceci est un test";
     static final String testSubject = "ceci est un sujet de mail";
 
@@ -32,7 +36,8 @@ public class TestMail {
 
         try {
             new Mail(null, null);
-            System.err.println("Le contenu du mail peut etre null, alors que ce n'est pas le comportement attendu");
+            logger.log(Level.SEVERE, ("Le contenu du mail peut etre null, alors que ce n'est pas le comportement attendu"));
+
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
@@ -47,9 +52,9 @@ public class TestMail {
         Mail mail1 = new Mail(content, testSubject);
 
         if(! mail1.getText().equals(content)) {
-            System.err.println("Le getText() renvoie : \"" + mail1.getText() + "\" alors qu'on attendait \"" + content + "\"...");
+            logger.log(Level.WARNING, String.format("Le getText() renvoie : %s alors qu'on attendait : %s", mail1.getText(), content));
         } else {
-            System.out.println("test getText() passe avec Succes");
+            logger.log(Level.INFO, "test getText() passe avec Succes");
         }
 
     }
@@ -63,9 +68,9 @@ public class TestMail {
         Mail mail1 = new Mail(content, testSubject);
 
         if(! mail1.getSubject().equals(testSubject)) {
-            System.err.println("Le getSubject() renvoie : \"" + mail1.getSubject() + "\" alors qu'on attendait \"" + testSubject + "\"...");
+            logger.log(Level.WARNING, String.format("Le getSubject() renvoie : %s  alors qu'on attendait : %s ..." , mail1.getSubject(), testSubject));
         } else {
-            System.out.println("test getSubject() passe avec Succes");
+            logger.log(Level.INFO, "test getSubject() passe avec Succes");
         }
 
     }
@@ -82,7 +87,7 @@ public class TestMail {
 
         // test non traitee par defaut
         if(! mail1.getState().equals(State.UNTREATED)) {
-            System.err.println(ERR_SENTENCE.replace("[t1]", String.valueOf(mail1.getState())).replace( "[t2]", String.valueOf(State.UNTREATED)));
+            logger.log( Level.WARNING, ERR_SENTENCE.replace("[t1]", String.valueOf(mail1.getState())).replace( "[t2]", String.valueOf(State.UNTREATED)));
         } else {
             nbSuccessfulTest ++;
         }
@@ -90,7 +95,7 @@ public class TestMail {
         // test spam
         mail1.setState(State.SPAM);
         if(! mail1.getState().equals(State.SPAM)) {
-            System.err.println(ERR_SENTENCE.replace("[t1]", String.valueOf(mail1.getState())).replace( "[t2]", String.valueOf(State.SPAM)));
+            logger.log( Level.WARNING, ERR_SENTENCE.replace("[t1]", String.valueOf(mail1.getState())).replace( "[t2]", String.valueOf(State.SPAM)));
         } else {
             nbSuccessfulTest ++;
         }
@@ -98,7 +103,8 @@ public class TestMail {
         // test non spam
         mail1.setState(State.NOT_SPAM);
         if(! mail1.getState().equals(State.NOT_SPAM)) {
-            System.err.println(ERR_SENTENCE.replace("[t1]", String.valueOf(mail1.getState())).replace( "[t2]", String.valueOf(State.NOT_SPAM)));
+            logger.log( Level.WARNING, ERR_SENTENCE.replace("[t1]", String.valueOf(mail1.getState())).replace( "[t2]", String.valueOf(State.NOT_SPAM)));
+
         } else {
             nbSuccessfulTest ++;
         }
@@ -106,12 +112,12 @@ public class TestMail {
         // test non traitee
         mail1.setState(State.UNTREATED);
         if(! mail1.getState().equals(State.UNTREATED)) {
-            System.err.println(ERR_SENTENCE.replace("[t1]", String.valueOf(mail1.getState())).replace( "[t2]", String.valueOf(State.UNTREATED)));
+            logger.log(Level.WARNING, ERR_SENTENCE.replace("[t1]", String.valueOf(mail1.getState())).replace( "[t2]", String.valueOf(State.UNTREATED)));
         } else {
             nbSuccessfulTest ++;
         }
 
-        System.out.println("Tests getEtat/setEtat reussis : " + nbSuccessfulTest + "/4 ");
+        logger.log(Level.INFO, String.format("Tests getEtat/setEtat reussis %d/4", nbSuccessfulTest));
 
     }
 
@@ -124,9 +130,9 @@ public class TestMail {
         Mail mail1 = new Mail(content, testSubject);
 
         if(mail1.toString().equals(testSubject)) {
-            System.out.println("test toString() passe avec Succes");
+            logger.log(Level.INFO, "test toString() passe avec Succes");
         } else {
-            System.err.println("Le toString() renvoie : \"" + mail1.toString() + "\" alors qu'on attendait \"" + testSubject + "\"...");
+            logger.log(Level.WARNING, String.format("Le toString() renvoie : %s alors qu'on attendait : %s", mail1.toString(), testSubject));
         }
     }
 
