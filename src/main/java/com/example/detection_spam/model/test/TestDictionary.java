@@ -98,49 +98,90 @@ public class TestDictionary {
         wordsTest.add("test5");
         wordsTest.add("test6");
         wordsTest.add("test7");
+        wordsTest.add("testbis");
 
-        // Test 1 : on ajoute un mot spam
+        // Test 1 : on ajoute un mot spam et un mot non spam
         dico1.majProbaOrAdd(wordsTest.get(0), true);
-        nbSuccessfulTest += dico1.getProbaSpam(wordsTest.get(0)) == 1 ? 1 : 0;
-        System.out.println(dico1.getProbaSpam(wordsTest.get(0)));
-        nbSuccessfulTest += dico1.getProbaNotSpam(wordsTest.get(0)) == 0 ? 1 : 0;
+        dico1.addSpamToLearn();
 
-        // Test 2 : on ajoute un mot non spam
         dico1.majProbaOrAdd(wordsTest.get(1), false);
+        dico1.addNotSpamToLearn();
+
+        nbSuccessfulTest += dico1.getProbaSpam(wordsTest.get(0)) == 1 ? 1 : 0;
+        System.out.println(nbSuccessfulTest);
+        nbSuccessfulTest += dico1.getProbaNotSpam(wordsTest.get(0)) == 0 ? 1 : 0;
+        System.out.println(nbSuccessfulTest);
+
         nbSuccessfulTest += dico1.getProbaNotSpam(wordsTest.get(1)) == 1 ? 1 : 0;
+        System.out.println(nbSuccessfulTest);
         nbSuccessfulTest += dico1.getProbaSpam(wordsTest.get(1)) == 0 ? 1 : 0;
+        System.out.println(nbSuccessfulTest);
 
-        // Test 3 : on ajoute un mot spam, et on lui met a jour sa proba spam
+        // Test 2 : on ajoute un mot spam, et on lui met a jour sa proba spam
         dico1.majProbaOrAdd(wordsTest.get(2), true);
+        dico1.addSpamToLearn();
+
         dico1.majProbaOrAdd(wordsTest.get(2), true);
+        dico1.addNotSpamToLearn();
+
         nbSuccessfulTest += dico1.getProbaSpam(wordsTest.get(2)) == 1 ? 1 : 0;
+        System.out.println(nbSuccessfulTest);
         nbSuccessfulTest += dico1.getProbaNotSpam(wordsTest.get(2)) == 0 ? 1 : 0;
+        System.out.println(nbSuccessfulTest);
 
-        // Test 4 : on ajoute un mot spam, et on lui met a jour sa proba non spam
+        // Test 3 : on ajoute un mot spam, et on lui met a jour sa proba non spam
         dico1.majProbaOrAdd(wordsTest.get(3), true);
+        dico1.addSpamToLearn();
+
         dico1.majProbaOrAdd(wordsTest.get(3), false);
+        dico1.addNotSpamToLearn();
+
         nbSuccessfulTest += dico1.getProbaSpam(wordsTest.get(3)) == 0.5 ? 1 : 0;
+        System.out.println(nbSuccessfulTest);
         nbSuccessfulTest += dico1.getProbaNotSpam(wordsTest.get(3)) == 0.5 ? 1 : 0;
+        System.out.println(nbSuccessfulTest);
 
-        // Test 5 : on ajoute un mot non spam, et on lui met a jour sa proba non spam
+        // Test 4 : on ajoute un mot non spam, et on lui met a jour sa proba non spam
         dico1.majProbaOrAdd(wordsTest.get(4), false);
+        dico1.addNotSpamToLearn();
+
         dico1.majProbaOrAdd(wordsTest.get(4), false);
+        dico1.addNotSpamToLearn();
+
         nbSuccessfulTest += dico1.getProbaSpam(wordsTest.get(4)) == 0 ? 1 : 0;
+        System.out.println(nbSuccessfulTest);
         nbSuccessfulTest += dico1.getProbaNotSpam(wordsTest.get(4)) == 1 ? 1 : 0;
+        System.out.println(nbSuccessfulTest);
 
-        // Test 6 : on ajoute un mot non spam, et on lui met a jour sa proba spam
-        dico1.majProbaOrAdd(wordsTest.get(5), false);
-        dico1.majProbaOrAdd(wordsTest.get(5), true);
-        nbSuccessfulTest += dico1.getProbaSpam(wordsTest.get(5)) == 0.5 ? 1 : 0;
-        nbSuccessfulTest += dico1.getProbaNotSpam(wordsTest.get(5)) == 0.5 ? 1 : 0;
+        // Test 5 : on ajoute un mot non spam, et on lui met a jour sa proba spam
+        dico1.majProbaOrAdd(wordsTest.get(7), false);
+        dico1.addNotSpamToLearn();
 
-        // Test 7 : on ajoute un mot , et on lui met a jour sa proba plusieurs fois
+        dico1.majProbaOrAdd(wordsTest.get(7), true);
+        dico1.addSpamToLearn();
+
+        nbSuccessfulTest += dico1.getProbaSpam(wordsTest.get(7)) == 0.5 ? 1 : 0;
+        System.out.println(nbSuccessfulTest + " proba : " + dico1.getProbaSpam(wordsTest.get(7)));
+        nbSuccessfulTest += dico1.getProbaNotSpam(wordsTest.get(7)) == 0.5 ? 1 : 0;
+        System.out.println(nbSuccessfulTest + " proba : " + dico1.getProbaSpam(wordsTest.get(7)));
+
+        // Test 6 : on ajoute un mot , et on lui met a jour sa proba plusieurs fois
         dico1.majProbaOrAdd(wordsTest.get(6), true);
+        dico1.addSpamToLearn();
+
         dico1.majProbaOrAdd(wordsTest.get(6), true);
+        dico1.addSpamToLearn();
+
         dico1.majProbaOrAdd(wordsTest.get(6), false);
+        dico1.addNotSpamToLearn();
+
         dico1.majProbaOrAdd(wordsTest.get(6), true);
+        dico1.addSpamToLearn();
+
         nbSuccessfulTest += dico1.getProbaSpam(wordsTest.get(6)) == 0.75 ? 1 : 0;
+        System.out.println(nbSuccessfulTest);
         nbSuccessfulTest += dico1.getProbaNotSpam(wordsTest.get(6)) == 0.25 ? 1 : 0;
+        System.out.println(nbSuccessfulTest);
 
         logger.log( Level.INFO, "majProbaOrAdd() : Test reussi => " + nbSuccessfulTest + "/14");
 
