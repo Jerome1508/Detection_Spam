@@ -12,6 +12,12 @@ import com.example.detection_spam.model.Mail;
  * @version 1.0.0
  */
 public class EmailUtils {
+    /**
+     * Constructeur privé pour éviter de créer une instance de cette classe
+     */
+    private EmailUtils() {
+
+    }
     public static Folder[] emailConnect(String host, String username, String password) throws MessagingException {
         //String host = "imap.gmx.com";
         //String username = "javamailspam@gmx.fr";
@@ -43,8 +49,8 @@ public class EmailUtils {
         return res;
     }
 
-    public static ArrayList<Mail> ParseEmail(Folder[] folders) throws MessagingException, IOException {
-        ArrayList<Mail> mails = new ArrayList<Mail>();
+    public static List<Mail> parseEmail(Folder[] folders) throws MessagingException, IOException {
+        ArrayList<Mail> mails = new ArrayList<>();
 
         for (Folder folder : folders) {
             if (folder.getMessageCount() != 0) {
