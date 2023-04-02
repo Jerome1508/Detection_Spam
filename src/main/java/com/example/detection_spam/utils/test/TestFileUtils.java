@@ -9,6 +9,7 @@ package com.example.detection_spam.utils.test;
 import com.example.detection_spam.model.Mail;
 import com.example.detection_spam.utils.FileUtils;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -18,11 +19,19 @@ import java.util.ArrayList;
  */
 public class TestFileUtils {
     /**
-     * TODO méthode qui test le constructeur de la class dictionnaire
+     * méthode qui teste le constructeur de la class dictionnaire
      */
     private static void testParseFile() {
         Mail mailtest = FileUtils.parseFile("src/main/resources/Data/base_text/Test.txt");
         System.out.println(mailtest.getText());
+    }
+
+    private static void testParseWrongFile() {
+        Mail mailtest = FileUtils.parseFile("pom.xml");
+        if (mailtest == null)
+            System.out.println("fichier incorrect détecté");
+        else
+            System.out.println("erreur de lecture de fichier incorrect");
     }
 
     private static void testParseFolder() {
@@ -30,8 +39,20 @@ public class TestFileUtils {
         mails.forEach(x -> System.out.println(x.getText()));
     }
 
-    public static void main (String[] args) {
-        testParseFolder();
+    private static void testParseWrongFolder() {
+        ArrayList<Mail> mails = FileUtils.parseFolder("src/main/resources/Data/base_text/Test.txt");
+        if (mails == null)
+            System.out.println("dossier incorrect détecté");
+        else
+            System.out.println("erreur de lecture de dossier incorrect");
+    }
 
+    public static void main (String[] args) {
+        System.out.println("TESTS FICHIERS :\n");
+        testParseFile();
+        testParseWrongFile();
+        System.out.println("\nTESTS DOSSIERS :\n");
+        testParseFolder();
+        testParseWrongFolder();
     }
 }

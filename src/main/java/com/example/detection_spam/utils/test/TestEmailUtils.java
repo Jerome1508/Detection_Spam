@@ -39,6 +39,7 @@ public class TestEmailUtils {
 
 
     public static void main (String[] args){
+        testConnexion();
         testParseMails();
 
     }
