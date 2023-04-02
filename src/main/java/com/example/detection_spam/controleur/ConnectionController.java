@@ -40,10 +40,10 @@ public class ConnectionController implements Initializable {
     private PasswordField passwordArea;
 
     @FXML
-    private TextField IMAP_Area;
+    private TextField imapArea;
 
     @FXML
-    private ChoiceBox<AcceptanceType> AcceptanceChoiceBox;
+    private ChoiceBox<AcceptanceType> acceptanceChoiceBox;
 
 
 
@@ -61,15 +61,15 @@ public class ConnectionController implements Initializable {
     @FXML
     private void onValidateFolderButtonClick() throws IOException {
         double filter = 0.6;
-        if(searchPath.getText() != "") {
+        if(! searchPath.getText().equals("")) {
             List<Mail> mails = FileUtils.parseFolder(searchPath.getText());
 
-            AcceptanceType acceptance = AcceptanceChoiceBox.getValue();
+            AcceptanceType acceptance = acceptanceChoiceBox.getValue();
 
             switch (acceptance) {
-                case Normal: filter = 0.6; break;
-                case Faux_négatif: filter = 0.5; break;
-                case Faux_positif: filter = 0.75; break;
+                case NORMAL: filter = 0.6; break;
+                case FAUX_NEGATIF: filter = 0.5; break;
+                case FAUX_POSITIF: filter = 0.75; break;
             }
 
             Algorithm.analyse(mails, new Dictionary("dicoSaved.ser"), filter);
@@ -95,14 +95,14 @@ public class ConnectionController implements Initializable {
     private void onValidateEmailButtonClick() throws IOException, MessagingException {
         double filter = 0.6;
 
-        if(emailArea.getText() != "" && passwordArea.getText() != "" && IMAP_Area.getText() != "") {
-            List<Mail> mails = EmailUtils.ParseEmail(EmailUtils.emailConnect(IMAP_Area.getText(), emailArea.getText() , passwordArea.getText()));
-            AcceptanceType acceptance = AcceptanceChoiceBox.getValue();
+        if(! emailArea.getText().equals("") && passwordArea.getText().equals("") && imapArea.getText().equals("")) {
+            List<Mail> mails = EmailUtils.parseEmail(EmailUtils.emailConnect(imapArea.getText(), emailArea.getText() , passwordArea.getText()));
+            AcceptanceType acceptance = acceptanceChoiceBox.getValue();
 
             switch (acceptance) {
-                case Normal: filter = 0.6; break;
-                case Faux_négatif: filter = 0.5; break;
-                case Faux_positif: filter = 0.75; break;
+                case NORMAL: filter = 0.6; break;
+                case FAUX_NEGATIF: filter = 0.5; break;
+                case FAUX_POSITIF: filter = 0.75; break;
             }
             Algorithm.analyse(mails, new Dictionary("dicoSaved.ser"), filter);
 
@@ -127,7 +127,7 @@ public class ConnectionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         EnumSet<AcceptanceType> acceptanceTypes = EnumSet.allOf(AcceptanceType.class);
-        AcceptanceChoiceBox.setItems(FXCollections.observableArrayList(acceptanceTypes));
-        AcceptanceChoiceBox.setValue(AcceptanceType.Normal);
+        acceptanceChoiceBox.setItems(FXCollections.observableArrayList(acceptanceTypes));
+        acceptanceChoiceBox.setValue(AcceptanceType.NORMAL);
     }
 }

@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.io.File;
 import java.io.IOException;
-import java.util.regex.Pattern;
+import java.util.List;
 
 /**
  * Classe permettant de récupérer des messages textes pour en faire des objets mail
@@ -17,11 +17,17 @@ import java.util.regex.Pattern;
  * @version 1.0.0
  */
 public class FileUtils {
+    /**
+     * Constructeur privé pour éviter de créer une instance de cette classe
+     */
+    private FileUtils() {
+        throw new IllegalStateException("Utility class");
+    }
     public static Mail parseFile(String filePath) {
         if (filePath.endsWith(".txt")) {
-            Path P1 = Paths.get(filePath);
+            Path p1 = Paths.get(filePath);
             String subject = "";
-            try(BufferedReader br = Files.newBufferedReader(P1)){
+            try(BufferedReader br = Files.newBufferedReader(p1)){
                 StringBuilder res = new StringBuilder();
                 String lines = br.readLine();
                 subject = new File(filePath).getName();
@@ -38,8 +44,8 @@ public class FileUtils {
     }
 
 
-    public static ArrayList<Mail> parseFolder(String folderPath) {
-        ArrayList<Mail> mails = new ArrayList<Mail>();
+    public static List<Mail> parseFolder(String folderPath) {
+        ArrayList<Mail> mails = new ArrayList<>();
         File folder = new File(folderPath);
         if (folder.isDirectory()) {
             File[] files = folder.listFiles();
@@ -52,6 +58,6 @@ public class FileUtils {
             return mails;
         }
         else
-            return null;
+            return new ArrayList<>();
     }
 }

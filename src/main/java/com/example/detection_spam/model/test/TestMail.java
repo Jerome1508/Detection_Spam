@@ -52,7 +52,7 @@ public class TestMail {
         Mail mail1 = new Mail(content, TEST_SUBJECT);
 
         if(! mail1.getText().equals(content)) {
-            logger.log(Level.WARNING, String.format("Le getText() renvoie : %s alors qu'on attendait : %s", mail1.getText(), content));
+            logger.log(Level.SEVERE, String.format("Le getText() renvoie : %s alors qu'on attendait : %s", mail1.getText(), content));
         } else {
             logger.log(Level.INFO, "test getText() passe avec Succes");
         }
@@ -68,7 +68,7 @@ public class TestMail {
         Mail mail1 = new Mail(content, TEST_SUBJECT);
 
         if(! mail1.getSubject().equals(TEST_SUBJECT)) {
-            logger.log(Level.WARNING, String.format("Le getSubject() renvoie : %s  alors qu'on attendait : %s ..." , mail1.getSubject(), TEST_SUBJECT));
+            logger.log(Level.SEVERE, String.format("Le getSubject() renvoie : %s  alors qu'on attendait : %s ..." , mail1.getSubject(), TEST_SUBJECT));
         } else {
             logger.log(Level.INFO, "test getSubject() passe avec Succes");
         }
@@ -87,7 +87,7 @@ public class TestMail {
 
         // test non traitee par defaut
         if(! mail1.getState().equals(State.UNTREATED)) {
-            logger.log(Level.WARNING, ERR_SENTENCE.replace("[t1]", String.valueOf(mail1.getState())).replace( "[t2]", String.valueOf(State.UNTREATED)));
+            logger.log(Level.SEVERE, ERR_SENTENCE.replace("[t1]", String.valueOf(mail1.getState())).replace( "[t2]", String.valueOf(State.UNTREATED)));
         } else {
             nbSuccessfulTest ++;
         }
@@ -95,7 +95,7 @@ public class TestMail {
         // test spam
         mail1.setState(State.SPAM);
         if(! mail1.getState().equals(State.SPAM)) {
-            logger.log(Level.WARNING, ERR_SENTENCE.replace("[t1]", String.valueOf(mail1.getState())).replace( "[t2]", String.valueOf(State.SPAM)));
+            logger.log(Level.SEVERE, ERR_SENTENCE.replace("[t1]", String.valueOf(mail1.getState())).replace( "[t2]", String.valueOf(State.SPAM)));
         } else {
             nbSuccessfulTest ++;
         }
@@ -103,7 +103,7 @@ public class TestMail {
         // test non spam
         mail1.setState(State.NOT_SPAM);
         if(! mail1.getState().equals(State.NOT_SPAM)) {
-            logger.log(Level.WARNING, ERR_SENTENCE.replace("[t1]", String.valueOf(mail1.getState())).replace( "[t2]", String.valueOf(State.NOT_SPAM)));
+            logger.log(Level.SEVERE, ERR_SENTENCE.replace("[t1]", String.valueOf(mail1.getState())).replace( "[t2]", String.valueOf(State.NOT_SPAM)));
 
         } else {
             nbSuccessfulTest ++;
@@ -112,7 +112,7 @@ public class TestMail {
         // test non traitee
         mail1.setState(State.UNTREATED);
         if(! mail1.getState().equals(State.UNTREATED)) {
-            logger.log(Level.WARNING, ERR_SENTENCE.replace("[t1]", String.valueOf(mail1.getState())).replace( "[t2]", String.valueOf(State.UNTREATED)));
+            logger.log(Level.SEVERE, ERR_SENTENCE.replace("[t1]", String.valueOf(mail1.getState())).replace( "[t2]", String.valueOf(State.UNTREATED)));
         } else {
             nbSuccessfulTest ++;
         }
@@ -132,7 +132,7 @@ public class TestMail {
         if(mail1.toString().equals(TEST_SUBJECT)) {
             logger.log(Level.INFO, "test toString() passe avec Succes");
         } else {
-            logger.log(Level.WARNING, String.format("Le toString() renvoie : %s alors qu'on attendait : %s", mail1.toString(), TEST_SUBJECT));
+            logger.log(Level.SEVERE, String.format("Le toString() renvoie : %s alors qu'on attendait : %s", mail1.toString(), TEST_SUBJECT));
         }
     }
 

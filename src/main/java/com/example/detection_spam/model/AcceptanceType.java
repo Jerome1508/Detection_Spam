@@ -11,7 +11,7 @@ package com.example.detection_spam.model;
  * @version 1.0.0
  */
 public enum AcceptanceType {
-    Normal, // 60 %
-    Faux_positif, // 75 %
-    Faux_négatif // 50%
+    NORMAL, // 60 %
+    FAUX_POSITIF, // 75 %
+    FAUX_NEGATIF // 50%
 }
