@@ -51,7 +51,9 @@ public class TestDictionary {
         nbSuccessfulTest += dico1.getProbaSpam(WORD_TEST) == 0.5 ? 1 : 0;
         nbSuccessfulTest += dico1.getProbaSpam("mot inconnu") == 0 ? 1 : 0;
 
-        logger.log( Level.INFO, "getProbaSpam() : Test reussi => " + nbSuccessfulTest + "/2");
+
+        logger.log(Level.INFO, String.format("getProbaSpam() : Test reussi => %d/2", nbSuccessfulTest));
+
 
     }
 
@@ -78,7 +80,7 @@ public class TestDictionary {
         nbSuccessfulTest += dico1.getProbaNotSpam(WORD_TEST) == 0.25 ? 1 : 0;
         nbSuccessfulTest += dico1.getProbaNotSpam("mot inconnu") == 0 ? 1 : 0;
 
-        logger.log( Level.INFO, "getProbaNotSpam() : Test reussi => " + nbSuccessfulTest + "/2");
+        logger.log( Level.INFO, String.format("getProbaNotSpam() : Test reussi => %d/2",nbSuccessfulTest));
     }
 
     /**
@@ -102,7 +104,6 @@ public class TestDictionary {
         // Test 1 : on ajoute un mot spam
         dico1.majProbaOrAdd(wordsTest.get(0), true);
         nbSuccessfulTest += dico1.getProbaSpam(wordsTest.get(0)) == 1 ? 1 : 0;
-        System.out.println(dico1.getProbaSpam(wordsTest.get(0)));
         nbSuccessfulTest += dico1.getProbaNotSpam(wordsTest.get(0)) == 0 ? 1 : 0;
 
         // Test 2 : on ajoute un mot non spam
@@ -142,7 +143,7 @@ public class TestDictionary {
         nbSuccessfulTest += dico1.getProbaSpam(wordsTest.get(6)) == 0.75 ? 1 : 0;
         nbSuccessfulTest += dico1.getProbaNotSpam(wordsTest.get(6)) == 0.25 ? 1 : 0;
 
-        logger.log( Level.INFO, "majProbaOrAdd() : Test reussi => " + nbSuccessfulTest + "/14");
+        logger.log( Level.INFO, String.format("majProbaOrAdd() : Test reussi => %d/14", nbSuccessfulTest));
 
     }
 
@@ -160,7 +161,7 @@ public class TestDictionary {
         wordsTest.add("test4");
         wordsTest.add("test5");
         wordsTest.add("test6");
-        wordsTest.add("test7");
+        wordsTest.add("test8");
 
         // on crée un dictionnaire
         Dictionary dico1 = new Dictionary();
@@ -198,7 +199,7 @@ public class TestDictionary {
         int nbSuccessfulTest = 0;
         Dictionary dico2 = new Dictionary("sauvegarde.ser");
 
-        nbSuccessfulTest += dico2.getProbaSpam("test7") == 0.75 ? 1 : 0;
+        nbSuccessfulTest += dico2.getProbaSpam("test8") == 0.75 ? 1 : 0;
         nbSuccessfulTest += dico2.getNbSpamToLearn() == 3 ? 1 : 0;
 
         logger.log( Level.INFO, nbSuccessfulTest == 2 ? "de-serialisation reussie" : "echec");
@@ -215,7 +216,7 @@ public class TestDictionary {
         dico1.addSpamToLearn();
         nbSuccessfulTest += dico1.getNbSpamToLearn() == 1 ? 1 : 0;
 
-        logger.log( Level.INFO, "getNbSpamToLearn() : Test reussi => " + nbSuccessfulTest + "/2");
+        logger.log( Level.INFO, String.format("getNbSpamToLearn() : Test reussi => %d/2", nbSuccessfulTest));
     }
 
     /**
@@ -229,7 +230,7 @@ public class TestDictionary {
         dico1.addNotSpamToLearn();
         nbSuccessfulTest += dico1.getNbNotSpamToLearn() == 1 ? 1 : 0;
 
-        logger.log( Level.INFO, "getNbNotSpamToLearn() : Test reussi => " + nbSuccessfulTest + "/2");
+        logger.log( Level.INFO, String.format("getNbNotSpamToLearn() : Test reussi => %d/2", nbSuccessfulTest));
     }
 
     /**
@@ -244,7 +245,7 @@ public class TestDictionary {
         nbSuccessfulTest += dico1.containsWord("Bonjour") ? 1 : 0;
         nbSuccessfulTest += dico1.containsWord("Philippe") ? 0 : 1;
 
-        logger.log( Level.INFO, "containsWord() : Test reussi => " + nbSuccessfulTest + "/2");
+        logger.log( Level.INFO, String.format("containsWord() : Test reussi => %d/2", nbSuccessfulTest));
     }
 
     /**
