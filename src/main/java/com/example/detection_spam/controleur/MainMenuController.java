@@ -25,19 +25,19 @@ public class MainMenuController {
     private  ListView<Mail> spamListView;
 
     @FXML
-    private  ListView<Mail> not_spamListView;
+    private  ListView<Mail> notSpamListView;
 
     private Mail currentMail;
 
 
-    public void initialize(List<Mail> mails) throws IOException {
+    public void initialize(List<Mail> mails) {
 
         // remplissage des listView
         for(Mail mail : mails) {
             if(mail.getState() == State.SPAM) {
                 spamListView.getItems().add(mail);
             } else if(mail.getState() == State.NOT_SPAM) {
-                not_spamListView.getItems().add(mail);
+                notSpamListView.getItems().add(mail);
             }
         }
 
@@ -62,13 +62,13 @@ public class MainMenuController {
             }
         });
 
-        not_spamListView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        notSpamListView.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
             @Override
             public void handle(MouseEvent click) {
 
                 //Use ListView's getSelected Item
-                currentMail = not_spamListView.getSelectionModel()
+                currentMail = notSpamListView.getSelectionModel()
                         .getSelectedItem();
 
                 if (click.getClickCount() == 2) {
@@ -109,7 +109,7 @@ public class MainMenuController {
         if(currentMail != null && currentMail.getState() == State.SPAM) {
             currentMail.setState(State.NOT_SPAM);
             spamListView.getItems().remove(currentMail);
-            not_spamListView.getItems().add(currentMail);
+            notSpamListView.getItems().add(currentMail);
 
         }
 
@@ -121,7 +121,7 @@ public class MainMenuController {
         if(currentMail != null&& currentMail.getState() == State.NOT_SPAM) {
             currentMail.setState(State.SPAM);
             spamListView.getItems().add(currentMail);
-            not_spamListView.getItems().remove(currentMail);
+            notSpamListView.getItems().remove(currentMail);
         }
 
     }
@@ -129,8 +129,8 @@ public class MainMenuController {
     @FXML
     private void onLearningButton()  {
 
-        Algorithm.learning(new ArrayList<Mail>(spamListView.getItems()), true,  new Dictionary("dicoSaved.ser"));
-        Algorithm.learning(new ArrayList<Mail>(not_spamListView.getItems()), false,  new Dictionary("dicoSaved.ser"));
+        Algorithm.learning(new ArrayList<>(spamListView.getItems()), true,  new Dictionary("dicoSaved.ser"));
+        Algorithm.learning(new ArrayList<>(notSpamListView.getItems()), false,  new Dictionary("dicoSaved.ser"));
 
     }
 
