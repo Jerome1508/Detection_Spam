@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.detection_spam.controleur.ConnectionController">
+<Pane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.detection_spam.controller.ConnectionController">
    <VBox>
       <children>
             <HBox alignment="CENTER">
@@ -100,7 +100,7 @@
          <HBox alignment="CENTER" prefHeight="94.0" prefWidth="599.0">
             <children>
                <Label text="Acceptation :" />
-               <ChoiceBox fx:id="AcceptanceChoiceBox" prefWidth="150.0">
+               <ChoiceBox fx:id="acceptanceChoiceBox" prefWidth="150.0">
                   <HBox.margin>
                      <Insets left="20.0" />
                   </HBox.margin></ChoiceBox>

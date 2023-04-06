@@ -7,6 +7,6 @@ module com.example.detection_spam {
 
     opens com.example.detection_spam to javafx.fxml;
     exports com.example.detection_spam;
-    exports com.example.detection_spam.controleur;
-    opens com.example.detection_spam.controleur to javafx.fxml;
+    exports com.example.detection_spam.controller;
+    opens com.example.detection_spam.controller to javafx.fxml;
 }

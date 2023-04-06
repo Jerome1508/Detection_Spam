@@ -18,10 +18,20 @@ public class EmailUtils {
     private EmailUtils() {
 
     }
+
+    /**
+     * Permet de se connecter à une adresse mail et de récuperer un dossier de mail
+     *  Donnée de test :
+     *      - host = "imap.gmx.com";
+     *      - username = "javamailspam@gmx.fr";
+     *      - password = "7hkCMpnu2iyP49V";
+     * @param host l'adresse du serveur IMAP
+     * @param username l'adresse mail à laquelle on veut se connecter
+     * @param password le mot de passe lié à l'adresse mail
+     * @return un dossier de mail
+     * @throws MessagingException
+     */
     public static Folder[] emailConnect(String host, String username, String password) throws MessagingException {
-        //String host = "imap.gmx.com";
-        //String username = "javamailspam@gmx.fr";
-        //String password = "7hkCMpnu2iyP49V";
 
         Properties props = System.getProperties();
         props.setProperty("mail.imap.ssl.enable", "true");
@@ -49,6 +59,13 @@ public class EmailUtils {
         return res;
     }
 
+    /**
+     * Parse le dossier brut récupéré depuis l'adresse mail en une liste d'objet Mail exploitable par l'application
+     * @param folders
+     * @return la liste des mails contenus dans le dossier pris en argument
+     * @throws MessagingException
+     * @throws IOException
+     */
     public static List<Mail> parseEmail(Folder[] folders) throws MessagingException, IOException {
         ArrayList<Mail> mails = new ArrayList<>();
 
