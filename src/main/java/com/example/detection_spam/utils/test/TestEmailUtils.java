@@ -18,7 +18,9 @@ import static com.example.detection_spam.utils.EmailUtils.emailConnect;
  */
 public class TestEmailUtils {
     private static Logger logger = Logger.getLogger(TestEmailUtils.class.getPackage().getName());
-
+     /**
+     * Cette méthode teste la connexion à un serveur de messagerie IMAP
+     */
     private static void testConnexion()  {
         try {
             logger.log(Level.INFO, () -> {
@@ -33,7 +35,10 @@ public class TestEmailUtils {
         }
 
     }
-
+    
+    /**
+     * Cette méthode teste la récupération des emails à partir d'un serveur de messagerie IMAP
+     */
     private static void testParseMails() {
         try {
             List<Mail> mails = parseEmail(emailConnect("imap.gmx.com","javamailspam@gmx.fr", "7hkCMpnu2iyP49V"));
