@@ -23,6 +23,13 @@ public class FileUtils {
     private FileUtils() {
         throw new IllegalStateException("Utility class");
     }
+    
+    /**
+    Méthode permettant de transformer un fichier texte en un objet Mail
+    @param filePath Le chemin du fichier texte à transformer
+    @return Un objet Mail créé à partir du contenu du fichier texte
+    @throws IOException Si une erreur survient lors de la lecture du fichier texte
+    */
     public static Mail parseFile(String filePath) {
         if (filePath.endsWith(".txt")) {
             Path p1 = Paths.get(filePath);
@@ -43,7 +50,11 @@ public class FileUtils {
         return null;
     }
 
-
+    /**
+    Méthode permettant de transformer tous les fichiers texte d'un répertoire en objets Mail
+    @param folderPath Le chemin du répertoire contenant les fichiers texte
+    @return Une liste d'objets Mail créés à partir des fichiers texte du répertoire
+    */
     public static List<Mail> parseFolder(String folderPath) {
         ArrayList<Mail> mails = new ArrayList<>();
         File folder = new File(folderPath);
