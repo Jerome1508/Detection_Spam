@@ -70,7 +70,7 @@
                               <HBox alignment="TOP_RIGHT" prefHeight="11.0" prefWidth="289.0">
                                  <children>
                                     <Label text="Imap : " />
-                                 <TextField fx:id="IMAP_Area" prefWidth="200.0" />
+                                 <TextField fx:id="imapArea" prefWidth="200.0" />
                                  </children>
                                  <opaqueInsets>
                                     <Insets />

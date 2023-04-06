@@ -95,7 +95,7 @@ public class ConnectionController implements Initializable {
     private void onValidateEmailButtonClick() throws IOException, MessagingException {
         double filter = 0.6;
 
-        if(! emailArea.getText().equals("") && passwordArea.getText().equals("") && imapArea.getText().equals("")) {
+        if(!emailArea.getText().equals("") && !passwordArea.getText().equals("") && !imapArea.getText().equals("")) {
             List<Mail> mails = EmailUtils.parseEmail(EmailUtils.emailConnect(imapArea.getText(), emailArea.getText() , passwordArea.getText()));
             AcceptanceType acceptance = acceptanceChoiceBox.getValue();
 
@@ -105,7 +105,6 @@ public class ConnectionController implements Initializable {
                 case FAUX_POSITIF: filter = 0.75; break;
             }
             Algorithm.analyse(mails, new Dictionary("dicoSaved.ser"), filter);
-
             // création de la scène
             Stage mainMenuStage = new Stage(StageStyle.DECORATED);
             FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-menu-view.fxml"));
