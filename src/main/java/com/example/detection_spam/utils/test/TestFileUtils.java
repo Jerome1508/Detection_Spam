@@ -28,7 +28,10 @@ public class TestFileUtils {
         Mail mailtest = FileUtils.parseFile("src/main/resources/Data/base_text/Test.txt");
         logger.log(Level.INFO, (mailtest.getText()));
     }
-
+    
+    /**
+     * Méthode qui teste la lecture d'un fichier incorrect
+     */
     private static void testParseWrongFile() {
         Mail mailtest = FileUtils.parseFile("pom.xml");
         if (mailtest == null)
@@ -36,12 +39,16 @@ public class TestFileUtils {
         else
             logger.log(Level.INFO, ("erreur de lecture de fichier incorrect"));
     }
-
+    /**
+     * Méthode qui teste la lecture de tous les fichiers d'un dossier
+     */
     private static void testParseFolder() {
         List<Mail> mails = FileUtils.parseFolder("src/main/resources/Data/base_text");
         mails.forEach(x -> logger.log(Level.INFO, (x.getText())));
     }
-
+    /**
+     * Méthode qui teste la lecture d'un dossier incorrect
+     */
     private static void testParseWrongFolder() {
         List<Mail> mails = FileUtils.parseFolder("src/main/resources/Data/base_text/Test.txt");
         if (mails == null)
